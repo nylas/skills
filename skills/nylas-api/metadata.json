@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "organization": "Nylas",
+  "date": "March 2026",
+  "abstract": "Complete Nylas v3 API integration guide covering authentication (6 methods), email, calendar, contacts, webhooks, scheduler, notetaker, smart compose, transactional send, admin APIs, UI components, and all provider-specific guides. SDKs for Node.js, Python, Ruby, and Kotlin/Java.",
+  "references": [
+    "https://developer.nylas.com",
+    "https://developer.nylas.com/llms.txt",
+    "https://developer.nylas.com/llms-full.txt"
+  ]
+}
