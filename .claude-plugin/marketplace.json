@@ -1,0 +1,26 @@
+{
+  "name": "nylas-skills",
+  "owner": {
+    "name": "Nylas",
+    "email": "support@nylas.com"
+  },
+  "metadata": {
+    "description": "Skills for building with the Nylas platform — email, calendar, and contacts",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "nylas-skills",
+      "description": "Build email, calendar, and contacts integrations with the Nylas API and CLI",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "communications",
+      "tags": ["email", "calendar", "contacts", "nylas", "api", "cli", "oauth"],
+      "skills": [
+        "./skills/nylas-api",
+        "./skills/nylas-cli"
+      ]
+    }
+  ]
+}

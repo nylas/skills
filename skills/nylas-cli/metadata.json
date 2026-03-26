@@ -1,0 +1,9 @@
+{
+  "version": "2.0.0",
+  "organization": "Nylas",
+  "date": "March 2026",
+  "abstract": "Complete Nylas CLI reference covering setup, authentication, email, calendar, contacts, webhooks, inbound email, dashboard management, MCP installation, AI chat, audit logging, and TUI/demo interfaces.",
+  "references": [
+    "https://cli.nylas.com/docs/commands"
+  ]
+}
