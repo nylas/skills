@@ -33,8 +33,8 @@ Manage email, calendar, and contacts from the terminal with the Nylas CLI.
 npx skills add nylas/skills
 
 # Or install individually
-npx skills add nylas/skills/nylas-api
-npx skills add nylas/skills/nylas-cli
+npx skills add nylas/skills --skill nylas-api
+npx skills add nylas/skills --skill nylas-cli
 ```
 
 ### Claude Code Plugin
