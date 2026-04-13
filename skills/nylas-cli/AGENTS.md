@@ -1,6 +1,6 @@
 # Nylas CLI Reference
 
-Compiled reference. Full docs: https://cli.nylas.com/docs/commands
+Compiled reference. Official docs source: https://cli.nylas.com/docs/commands
 
 ---
 
