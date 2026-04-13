@@ -4,7 +4,7 @@
 - First run: `nylas init` | SSO: `nylas init --google|--microsoft|--github`
 - Global flags: `--json`, `--verbose`, `--limit N`, `--yes`, `--config PATH`
 - Config: `~/.config/nylas/config.yaml` | Manage: `nylas config list|get|set|reset`
-- **When rules don't cover it, fetch**: https://cli.nylas.com/docs/commands
+- **Official docs source**: https://cli.nylas.com/docs/commands
 
 ## Rules
 

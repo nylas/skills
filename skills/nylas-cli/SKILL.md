@@ -17,7 +17,8 @@ Email, calendar, and contacts from your terminal. One CLI for Google, Microsoft,
 
 ## Documentation
 
-Full CLI docs at **https://cli.nylas.com/docs/commands**. **When the rules below don't cover what you need, use WebFetch on that URL to get the complete command reference.**
+Official CLI docs source: **https://cli.nylas.com/docs/commands**.
+Use the bundled rule files below and `AGENTS.md` as the working reference for agent actions.
 
 ## Rules
 
