@@ -5,13 +5,13 @@ Build email, calendar, and contacts integrations with the Nylas v3 API.
 ## What this skill covers
 
 - **Authentication** — Hosted OAuth, BYO auth, IMAP, PKCE, service accounts, Nylas Connect
-- **Email** — Messages, threads, drafts, folders, attachments, tracking, smart compose, templates, transactional send
+- **Email** — Messages, threads, drafts, folders, attachments, tracking, smart compose, templates, transactional send (Beta)
 - **Calendar** — Events, availability, free/busy, recurring, conferencing, group booking
 - **Contacts** — CRUD, groups, sources, profile pictures
 - **Webhooks** — Webhooks, Pub/Sub, triggers, verification, retries
 - **Scheduler** — Configurations, bookings, hosted pages, 70+ UI components
 - **Notetaker** — Recording, transcription, AI summaries, media
-- **Admin** — Grants, connectors, API keys, domains, workspaces
+- **Admin** — Grants, connectors, workspaces, plus Beta API key/domain endpoints that use Nylas Service Account auth
 - **SDKs** — Node.js, Python, Ruby, Kotlin/Java
 
 ## Structure

@@ -9,5 +9,8 @@
 ## 7. Inbound Email (inbound) — MEDIUM
 ## 8. Dashboard (dashboard) — MEDIUM
 ## 9. MCP & AI (mcp) — HIGH
-## 10. Audit Logging (audit) — MEDIUM
-## 11. Tools & Interfaces (tools) — LOW
+## 10. Slack Integration (slack) — MEDIUM
+## 11. Notetaker (notetaker) — MEDIUM
+## 12. Audit Logging (audit) — MEDIUM
+## 13. Tools & Interfaces (tools) — LOW
+## 14. Advanced Families (advanced) — LOW

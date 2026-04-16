@@ -19,5 +19,8 @@
 | `rules/inbound-email.md` | Managed inbound addresses |
 | `rules/dashboard-commands.md` | Account, apps, API keys, orgs |
 | `rules/mcp-ai-commands.md` | MCP install/serve, AI chat (claude/codex/ollama) |
+| `rules/slack-commands.md` | `nylas slack auth|channels|messages|send|reply|users|search` |
+| `rules/notetaker-commands.md` | `nylas notetaker list|create|show|media|delete` |
 | `rules/audit-commands.md` | Audit logging, export |
 | `rules/tools-interfaces.md` | TUI, UI, Air, demo, timezones |
+| `rules/advanced-commands.md` | Admin, scheduler, timezone, agent, workflows, hosted templates, and GPG-related email feature docs |

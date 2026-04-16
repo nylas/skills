@@ -27,12 +27,14 @@ GET https://api.us.nylas.com/v3/connect/auth?
   &provider=google
 ```
 
-### API Auth (all requests)
+### API Auth (most requests)
 
 ```bash
 curl -X GET "https://api.us.nylas.com/v3/grants/<GRANT_ID>/messages" \
   -H "Authorization: Bearer <NYLAS_API_KEY>"
 ```
+
+For grant-scoped and most application-scoped APIs, authenticate with a Bearer API key. Manage Domains and Beta admin API key endpoints use Nylas Service Account auth instead.
 
 ### Providers
 
@@ -57,7 +59,7 @@ Google (OAuth), Microsoft (OAuth), Yahoo (OAuth), iCloud (app password), IMAP (u
 | `/v3/grants/{id}/messages/schedules` | GET | Scheduled messages |
 | `/v3/grants/{id}/messages/templates` | CRUD | Grant-level templates |
 | `/v3/templates` | CRUD | App-level templates |
-| `/v3/send` | POST | Transactional send (no grant) |
+| `/v3/domains/{domain_name}/messages/send` | POST | Transactional send (no grant, Beta) |
 
 **Filters:** `limit`, `subject`, `from`, `to`, `unread`, `starred`, `has_attachment`, `received_before`, `received_after`, `in`, `search_query_native`, `select`
 
@@ -95,13 +97,16 @@ Sources: `address_book` (default), `domain`, `inbox`. Profile pictures: `?profil
 | Endpoint | Purpose |
 |----------|---------|
 | `/v3/webhooks` | CRUD webhooks |
-| `/v3/webhooks/{id}/test` | Send test event |
+| `/v3/webhooks/mock-payload` | Get mock notification payload for a trigger |
+| `/v3/webhooks/send-test-event` | Send test event to a webhook endpoint |
 | `/v3/webhooks/rotate-secret/{id}` | Rotate secret |
 | `/v3/channels` | CRUD Pub/Sub channels |
 
 **Triggers:** message.created/updated, event.created/updated/deleted, contact.created/updated/deleted, calendar.created/updated/deleted, grant.created/updated/deleted/expired, notetaker.created/updated/meeting_state/media/deleted
 
-**Verification:** Initial GET with `challenge` param; return exact value within 10s. **Security:** Verify `x-nylas-signature` (HMAC-SHA256). **Retries:** 3 attempts, exponential backoff; 72hr failure → manual reactivation.
+**Payload variants:** `.truncated` only for `message.*` triggers when payloads exceed 1 MB; other notification types are always sent in full. `.transformed` indicates custom field selection was applied.
+
+**Verification:** Initial GET with `challenge` param; return exact value within 10s. **Security:** Verify `x-nylas-signature` (HMAC-SHA256). **Retries:** Nylas marks an endpoint as `failing` after 95% non-`200` responses or non-responses over 15 minutes, continues exponential-backoff retries for 72 hours, and then marks the endpoint `failed` if the failure rate stays above 95%.
 
 ---
 
@@ -142,8 +147,8 @@ Supports Google Meet, Microsoft Teams, Zoom. AI summaries + action items. Silenc
 | `/v3/connectors` | CRUD connectors |
 | `/v3/connectors/{provider}/creds` | CRUD credentials |
 | `/v3/providers/detect` | Detect provider by email |
-| `/v3/applications/{id}/api-keys` | API key management |
-| `/v3/domains` | Domain management |
+| `/v3/admin/applications/{application_id}/api-keys` | API key management (Beta; Nylas Service Account auth) |
+| `/v3/admin/domains` | Domain management (Beta; Nylas Service Account auth) |
 | `/v3/workspaces` | Workspace management |
 
 ---
@@ -153,7 +158,10 @@ Supports Google Meet, Microsoft Teams, Zoom. AI summaries + action items. Silenc
 **Node.js** (`npm install nylas`):
 ```typescript
 import Nylas from "nylas";
-const nylas = new Nylas({ apiKey: "NYLAS_API_KEY" });
+const nylas = new Nylas({
+  apiKey: "NYLAS_API_KEY",
+  apiUri: "https://api.us.nylas.com",
+});
 const messages = await nylas.messages.list({ identifier: "GRANT_ID", queryParams: { limit: 10 } });
 await nylas.messages.send({ identifier: "GRANT_ID", requestBody: { subject: "Hello", body: "Body", to: [{ email: "r@example.com" }] } });
 ```
@@ -161,7 +169,10 @@ await nylas.messages.send({ identifier: "GRANT_ID", requestBody: { subject: "Hel
 **Python** (`pip install nylas`):
 ```python
 from nylas import Client
-nylas = Client(api_key="NYLAS_API_KEY")
+nylas = Client(
+    api_key="NYLAS_API_KEY",
+    api_uri="https://api.us.nylas.com",
+)
 messages, _, _ = nylas.messages.list("GRANT_ID", query_params={"limit": 10})
 nylas.messages.send("GRANT_ID", request_body={"subject": "Hello", "body": "Body", "to": [{"email": "r@example.com"}]})
 ```

@@ -28,13 +28,13 @@ Reference: https://developer.nylas.com/docs/dev-guide/best-practices/manage-gran
 
 | Endpoint | Purpose |
 |----------|---------|
-| `/v3/applications/{id}/api-keys` | List/create/delete API keys |
+| `/v3/admin/applications/{application_id}/api-keys` | List/create/delete API keys (Beta; Nylas Service Account auth) |
 
 ### Domains
 
 | Endpoint | Purpose |
 |----------|---------|
-| `/v3/domains` | List/create/delete/verify sending domains |
+| `/v3/admin/domains` | List/create/delete/verify sending domains (Beta; Nylas Service Account auth) |
 
 ### Workspaces
 
@@ -47,6 +47,6 @@ Reference: https://developer.nylas.com/docs/dev-guide/best-practices/manage-gran
 | Endpoint | Purpose |
 |----------|---------|
 | `/v3/applications` | Get/update application settings |
-| `/v3/applications/{id}/callback-uris` | Manage callback URIs |
+| `/v3/applications/redirect-uris` | Manage callback URIs |
 
 Reference: [Admin API](https://developer.nylas.com/docs/api/v3/admin/)

@@ -55,7 +55,7 @@ Send emails without a grant using verified domains. No OAuth required.
 
 | Endpoint | Purpose |
 |----------|---------|
-| `/v3/send` | Send transactional email |
+| `/v3/domains/{domain_name}/messages/send` | Send transactional email |
 
 Reference: https://developer.nylas.com/docs/v3/email/transactional-send-banner/
 

@@ -21,7 +21,7 @@ Env: `NYLAS_API_KEY`, `NYLAS_CLIENT_ID`, `NYLAS_GRANT_ID`, `NYLAS_DISABLE_KEYRIN
 
 ```bash
 nylas auth login [--provider microsoft]
-nylas auth config|list|show|status|whoami|switch|logout|remove|token|scopes|providers|migrate
+nylas auth config|list|show|status|whoami|switch <email>|logout|remove <grant-id>|token|scopes|providers|migrate
 ```
 
 ## 3. Email
@@ -35,6 +35,7 @@ nylas email attachments|folders|threads|drafts|templates|scheduled list
 ```
 
 Filters: `--unread`, `--starred`, `--from`, `--to`, `--subject`, `--has-attachment`
+Email workflows: local templates (`nylas email templates ...`), hosted templates (`nylas template ...`), stored signatures, scheduled sends, and GPG-related signing/encryption flows (`nylas email send --sign/--encrypt`, `nylas email read --decrypt/--verify`) are documented in the dedicated email rules and the CLI command reference.
 
 ## 4. Calendar
 
@@ -47,6 +48,8 @@ nylas calendar schedule ai "..."
 nylas calendar analyze
 nylas calendar ai conflicts|reschedule
 ```
+
+Calendar workflows: timezone conversion, DST warnings, timezone locking, working-hours validation, and break validation are covered by the dedicated calendar rule, the timezone utilities docs, and the command reference.
 
 ## 5. Contacts
 
@@ -88,7 +91,34 @@ nylas chat [--agent claude|codex|ollama] [--model M] [--port P] [--no-browser]
 nylas ai config
 ```
 
-## 10. Audit Logging
+## 10. Slack Integration
+
+```bash
+nylas slack auth set --token xoxp-...
+nylas slack auth status
+nylas slack auth remove
+nylas slack channels list
+nylas slack channels info C01234567890
+nylas slack messages list --channel general
+nylas slack send --channel general --text "Hello team!"
+nylas slack reply --channel general --thread 1234567890.123456 --text "Reply"
+nylas slack users list
+nylas slack search --query "project update"
+```
+
+## 11. Notetaker (AI Meeting Bot)
+
+```bash
+nylas notetaker list
+nylas notetaker create --meeting-link "https://zoom.us/j/123456789"
+nylas notetaker show <notetaker-id>
+nylas notetaker media <notetaker-id>
+nylas notetaker delete <notetaker-id> --yes
+```
+
+Aliases: `nylas nt`, `nylas bot`
+
+## 12. Audit Logging
 
 ```bash
 nylas audit init
@@ -97,7 +127,7 @@ nylas audit export
 nylas audit config show|set
 ```
 
-## 11. Tools & Interfaces
+## 13. Tools & Interfaces
 
 | Command | Description |
 |---------|-------------|
@@ -106,3 +136,17 @@ nylas audit config show|set
 | `nylas air` | Web client (localhost:7365) |
 | `nylas demo <resource>` | Demo mode |
 | `nylas timezone list\|convert\|dst\|find-meeting\|info` | Timezone tools (offline) |
+
+## 14. Advanced Families
+
+```bash
+nylas admin ...
+nylas scheduler ...
+nylas timezone ...
+nylas agent ...
+nylas workflow ...
+nylas template ...
+nylas email ... --sign/--encrypt/--decrypt/--verify
+```
+
+These command families and related email feature docs are current in the upstream CLI docs and should be checked in the command reference before answering with syntax details.
