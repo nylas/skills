@@ -13,8 +13,8 @@ section: webhooks
 |----------|---------|---------|
 | `/v3/webhooks` | GET, POST | List/create webhooks |
 | `/v3/webhooks/{id}` | GET, PUT, DELETE | Manage webhook |
-| `/v3/webhooks/{id}/mock-payload` | GET | Get mock payload for testing |
-| `/v3/webhooks/{id}/test` | POST | Send test event |
+| `/v3/webhooks/mock-payload` | POST | Get mock payload for testing |
+| `/v3/webhooks/send-test-event` | POST | Send test event |
 | `/v3/webhooks/rotate-secret/{id}` | POST | Rotate webhook secret |
 
 ### Pub/Sub Channels
@@ -35,7 +35,7 @@ Alternative to webhooks using Google Cloud Pub/Sub.
 **Grants:** `grant.created`, `grant.updated`, `grant.deleted`, `grant.expired`
 **Notetaker:** `notetaker.created`, `notetaker.updated`, `notetaker.meeting_state`, `notetaker.media`, `notetaker.deleted`
 
-**Payload variants:** `.truncated` (payload >1 MB, re-query via API), `.transformed` (custom field selection applied)
+**Payload variants:** `.truncated` only for `message.*` triggers when payloads exceed 1 MB; other notification types are always sent in full. Re-query truncated messages via API. `.transformed` means custom field selection was applied.
 
 ### Webhook Verification
 
@@ -47,6 +47,6 @@ Every notification includes an `x-nylas-signature` header — HMAC-SHA256 of the
 
 ### Retry Behavior
 
-3 total delivery attempts with exponential backoff (final at ~10-20 min). Retries on: 408, 429, 502, 503, 504, 507. After 72 hours of 95%+ failures, the webhook is marked **Failed** and requires manual reactivation.
+Nylas marks an endpoint as `failing` after 95% non-`200` responses or non-responses over 15 minutes. While it is `failing`, Nylas continues retrying delivery with exponential backoff for 72 hours. If failures stay above 95% over that 72-hour window, the endpoint becomes `failed` and requires manual reactivation.
 
 Reference: [Notifications docs](https://developer.nylas.com/docs/v3/notifications/) | [Notification schemas](https://developer.nylas.com/docs/v3/notifications/notification-schemas/) | [Pub/Sub](https://developer.nylas.com/docs/v3/notifications/pubsub-channel/) | [Webhook best practices](https://developer.nylas.com/docs/dev-guide/best-practices/webhook-best-practices/)

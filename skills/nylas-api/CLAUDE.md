@@ -1,7 +1,7 @@
 # Nylas API Skill
 
 - v3 only. v2 is deprecated. Base URLs: `api.us.nylas.com` / `api.eu.nylas.com`
-- Auth: Bearer token (API key) + grant ID in path
+- Most APIs use Bearer token (API key) + grant ID in path; Manage Domains and admin API key endpoints use Nylas Service Account auth
 - **When rules don't cover it, fetch docs**: `curl --location 'https://developer.nylas.com/docs/v3/<topic>/' --header 'Accept: text/markdown'`
 - **Find the right page**: `https://developer.nylas.com/llms.txt`
 

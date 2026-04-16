@@ -1,6 +1,6 @@
 ---
 name: nylas-cli
-description: "Use the Nylas CLI to manage email, calendar, and contacts from the terminal. Use when user asks about Nylas CLI commands, nylas init, nylas email, nylas calendar, nylas contacts, nylas auth, nylas mcp, nylas chat, nylas tui, nylas air, nylas audit, or terminal-based email/calendar management. DO NOT use for Nylas API SDK integration."
+description: "Use the Nylas CLI to manage email, calendar, contacts, Slack, and Notetaker from the terminal. Use when user asks about Nylas CLI commands, nylas init, nylas email, nylas calendar, nylas contacts, nylas auth, nylas mcp, nylas chat, nylas slack, nylas notetaker, nylas tui, nylas air, nylas audit, or terminal-based email/calendar management. DO NOT use for Nylas API SDK integration."
 compatibility: "Requires the Nylas CLI installed via Homebrew (brew install nylas/nylas-cli/nylas) or Go (go install github.com/nylas/cli/cmd/nylas@latest)"
 license: MIT
 metadata:
@@ -8,12 +8,12 @@ metadata:
   version: "2.0.0"
   organization: Nylas
   date: March 2026
-  abstract: Complete CLI reference covering email, calendar, contacts, webhooks, inbound email, dashboard, MCP, AI chat, audit logging, and all tools/interfaces.
+  abstract: CLI reference covering setup, auth, email, calendar, contacts, webhooks, agent accounts, inbound email, timezone utilities, dashboard, MCP, AI chat, Slack integration, Notetaker, audit logging, tools/interfaces, and advanced command families and workflows.
 ---
 
 # Nylas CLI Reference
 
-Email, calendar, and contacts from your terminal. One CLI for Google, Microsoft, and IMAP.
+Email, calendar, contacts, Slack, and Notetaker from your terminal. One CLI for Google, Microsoft, IMAP, Slack, and meeting-bot workflows.
 
 ## Documentation
 
@@ -60,6 +60,14 @@ Read individual rule files for command references. For the full compiled referen
 
 - [`rules/mcp-ai-commands.md`](rules/mcp-ai-commands.md) — MCP install/status/serve for Claude Code/Cursor/all, AI chat with multiple agents (claude/codex/ollama), AI config
 
+### Slack Integration (MEDIUM)
+
+- [`rules/slack-commands.md`](rules/slack-commands.md) — Slack workspace auth, channels, messages, send/reply, users, search
+
+### Notetaker (MEDIUM)
+
+- [`rules/notetaker-commands.md`](rules/notetaker-commands.md) — AI meeting bot list/create/show/media/delete workflows
+
 ### Audit Logging (MEDIUM)
 
 - [`rules/audit-commands.md`](rules/audit-commands.md) — Init, enable/disable, view logs/summary, export, config
@@ -67,3 +75,7 @@ Read individual rule files for command references. For the full compiled referen
 ### Tools & Interfaces (LOW)
 
 - [`rules/tools-interfaces.md`](rules/tools-interfaces.md) — TUI, UI, Air web client, demo mode, timezone utilities
+
+### Advanced Families (LOW)
+
+- [`rules/advanced-commands.md`](rules/advanced-commands.md) — Admin, scheduler, timezone, agent, workflows, hosted templates, and GPG-related email feature docs

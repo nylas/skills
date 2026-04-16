@@ -1,20 +1,23 @@
 # nylas-cli
 
-Manage email, calendar, and contacts from the terminal with the Nylas CLI.
+Manage email, calendar, contacts, Slack, and Notetaker from the terminal with the Nylas CLI.
 
 ## What this skill covers
 
 - **Setup** — Install (brew/go), init with SSO, global flags, config management
 - **Authentication** — Login, whoami, switch, token, scopes, migrate
-- **Email** — Read, send, search, smart-compose, AI analyze, metadata
-- **Calendar** — Events CRUD, RSVP, availability, AI scheduling
+- **Email** — Read, send, search, smart-compose, AI analyze, metadata, templates, GPG-related signing/encryption flows, scheduled mail
+- **Calendar** — Events CRUD, RSVP, availability, AI scheduling, timezone tools, DST handling, timezone locking, working-hours and break validation
 - **Contacts** — CRUD, search, sync, groups
 - **Webhooks** — CRUD, triggers, test events, local server
+- **Slack** — Workspace auth, channels, messages, send/reply, users, search
+- **Notetaker** — AI meeting bot list/create/show/media/delete
 - **Inbound Email** — Managed inbound addresses, real-time monitoring
 - **Dashboard** — Account, apps, API keys, organizations
 - **MCP & AI** — MCP install for Claude Code/Cursor, AI chat (claude/codex/ollama)
 - **Audit** — Logging, export, config
 - **Tools** — TUI, UI, Air web client, demo mode, timezones
+- **Advanced Families** — Admin, scheduler, timezone, agent, workflows, hosted templates, and GPG-related email feature docs
 
 ## Structure
 

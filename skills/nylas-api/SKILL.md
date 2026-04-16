@@ -1,14 +1,14 @@
 ---
 name: nylas-api
 description: "Build email, calendar, and contacts integrations with the Nylas v3 API. Use when code imports nylas, @nylas/nylas, nylas-python, or user asks about Nylas API, email API integration, calendar API, contacts API, OAuth grants, webhooks, scheduler, notetaker, smart compose, or transactional send. DO NOT use for Nylas CLI commands."
-compatibility: "Requires a Nylas API key from dashboard.nylas.com. SDKs available for Node.js (npm install nylas), Python (pip install nylas), Ruby (gem install nylas), and Kotlin/Java."
+compatibility: "Requires a Nylas API key from dashboard-v3.nylas.com. SDKs available for Node.js (npm install nylas), Python (pip install nylas), Ruby (gem install nylas), and Kotlin/Java."
 license: MIT
 metadata:
   author: nylas
   version: "2.0.0"
   organization: Nylas
   date: March 2026
-  abstract: Complete v3 API integration guide covering authentication, email, calendar, contacts, webhooks, scheduler, notetaker, smart compose, transactional send, admin APIs, UI components, and all provider-specific guides.
+  abstract: Current v3 API integration guide covering authentication, email, calendar, contacts, webhooks, scheduler, notetaker, smart compose, transactional send, admin APIs, UI components, and all provider-specific guides.
 ---
 
 # Nylas v3 API Integration Guide
@@ -16,7 +16,7 @@ metadata:
 - **Always use v3.** The v2 API is deprecated.
 - A **grant** = an authenticated user account (Gmail, Outlook, etc.) connected through Nylas.
 - **Base URLs**: `https://api.us.nylas.com` (US) / `https://api.eu.nylas.com` (EU). All paths `/v3/`.
-- **Auth**: Bearer token (API key) + grant ID in path.
+- **Auth**: Most APIs use Bearer token (API key) plus a grant ID in the path. Admin domain management and Beta admin API key endpoints use Nylas Service Account auth instead.
 - **SDKs**: Node.js, Python, Ruby, Kotlin/Java.
 
 ## Documentation

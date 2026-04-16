@@ -9,7 +9,10 @@ section: sdk
 
 ```typescript
 import Nylas from "nylas";
-const nylas = new Nylas({ apiKey: "NYLAS_API_KEY" });
+const nylas = new Nylas({
+  apiKey: "NYLAS_API_KEY",
+  apiUri: "https://api.us.nylas.com",
+});
 
 // List messages
 const messages = await nylas.messages.list({
@@ -32,7 +35,7 @@ await nylas.messages.send({
 
 ```python
 from nylas import Client
-nylas = Client(api_key="NYLAS_API_KEY")
+nylas = Client("NYLAS_API_KEY", "https://api.us.nylas.com")
 
 # List messages
 messages, _, _ = nylas.messages.list("GRANT_ID", query_params={"limit": 10})
