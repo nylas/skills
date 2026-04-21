@@ -9,7 +9,7 @@ section: email
 nylas email list [grant-id]                   # Recent emails
 nylas email read <id>                         # Read a message
 nylas email send --to EMAIL --subject S --body B [--sign] [--encrypt]
-nylas email search --query "invoice"          # Search
+nylas email search "invoice"                  # Search
 nylas email delete <id>                       # Delete
 nylas email mark read|starred <id>            # Mark message
 nylas email smart-compose --prompt "..."      # AI email generation

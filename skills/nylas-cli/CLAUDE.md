@@ -1,8 +1,8 @@
 # Nylas CLI Skill
 
-- Install: `brew install nylas/nylas-cli/nylas` or `go install github.com/nylas/cli/cmd/nylas@latest`
+- Install: `brew install nylas/nylas-cli/nylas` or `go install github.com/nylas/cli/cmd/nylas@latest`. If using a hosted installer from `cli.nylas.com`, download and inspect it before execution rather than piping it directly into a shell.
 - First run: `nylas init` | SSO: `nylas init --google|--microsoft|--github`
-- Global flags: `--json`, `--verbose`, `--limit N`, `--yes`, `--config PATH`
+- Global flags: `--config PATH`, `--format table|json|yaml`, `--json`, `--no-color`, `--quiet`, `--verbose`, `--wide`
 - Config: `~/.config/nylas/config.yaml` | Manage: `nylas config list|get|set|reset`
 - **Official docs source**: https://cli.nylas.com/docs/commands
 

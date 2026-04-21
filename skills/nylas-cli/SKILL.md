@@ -1,7 +1,7 @@
 ---
 name: nylas-cli
 description: "Use the Nylas CLI to manage email, calendar, contacts, Slack, and Notetaker from the terminal. Use when user asks about Nylas CLI commands, nylas init, nylas email, nylas calendar, nylas contacts, nylas auth, nylas mcp, nylas chat, nylas slack, nylas notetaker, nylas tui, nylas air, nylas audit, or terminal-based email/calendar management. DO NOT use for Nylas API SDK integration."
-compatibility: "Requires the Nylas CLI installed via Homebrew (brew install nylas/nylas-cli/nylas) or Go (go install github.com/nylas/cli/cmd/nylas@latest)"
+compatibility: "Requires the Nylas CLI installed via Homebrew or Go. Hosted installers from cli.nylas.com are optional, but should be downloaded and inspected before execution."
 license: MIT
 metadata:
   author: nylas
@@ -30,7 +30,7 @@ Read individual rule files for command references. For the full compiled referen
 
 ### Authentication (CRITICAL)
 
-- [`rules/auth-commands.md`](rules/auth-commands.md) — Login, whoami, list, show, switch, logout, remove, token, scopes, providers, migrate
+- [`rules/auth-commands.md`](rules/auth-commands.md) — Login, whoami, list, show, switch, logout, add/remove/revoke grants, token, scopes, providers, detect, migrate
 
 ### Email (HIGH)
 
@@ -58,7 +58,7 @@ Read individual rule files for command references. For the full compiled referen
 
 ### MCP & AI (HIGH)
 
-- [`rules/mcp-ai-commands.md`](rules/mcp-ai-commands.md) — MCP install/status/serve for Claude Code/Cursor/all, AI chat with multiple agents (claude/codex/ollama), AI config
+- [`rules/mcp-ai-commands.md`](rules/mcp-ai-commands.md) — MCP install/status/serve for Claude Desktop, Claude Code, Cursor, Windsurf, VS Code, or all assistants; AI chat with multiple agents (claude/codex/ollama); AI config
 
 ### Slack Integration (MEDIUM)
 

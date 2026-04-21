@@ -15,9 +15,12 @@ nylas auth status                             # Check auth status
 nylas auth whoami                             # Show current identity
 nylas auth switch <email>                     # Switch active account
 nylas auth logout                             # Logout
-nylas auth remove <grant-id>                  # Remove account
+nylas auth add <grant-id>                     # Re-add an existing grant locally
+nylas auth remove <grant-id>                  # Remove grant from local config only
+nylas auth revoke <grant-id>                  # Permanently revoke grant on server
 nylas auth token                              # Display API token
 nylas auth scopes [grant-id]                  # Show OAuth scopes
 nylas auth providers                          # List providers
-nylas auth migrate                            # Migrate account
+nylas auth detect <email>                     # Detect provider from email address
+nylas auth migrate                            # Migrate credentials to system keyring
 ```

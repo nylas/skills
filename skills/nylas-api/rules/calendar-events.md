@@ -7,12 +7,14 @@ section: calendar
 
 | Endpoint | Methods | Purpose |
 |----------|---------|---------|
-| `/v3/grants/{id}/calendars` | GET, POST, PUT, DELETE | CRUD calendars |
-| `/v3/grants/{id}/events` | GET, POST, PUT, DELETE | CRUD events |
+| `/v3/grants/{id}/calendars` | GET, POST | List or create calendars |
+| `/v3/grants/{id}/calendars/{calendar_id}` | GET, PUT, DELETE | Get, update, or delete a calendar |
+| `/v3/grants/{id}/events` | GET, POST | List or create events |
+| `/v3/grants/{id}/events/{event_id}` | GET, PUT, DELETE | Get, update, or delete an event |
 | `/v3/calendars/availability` | POST | Check availability |
-| `/v3/calendars/free-busy` | POST | Check free/busy |
-| `/v3/grants/{id}/events/{id}/send-rsvp` | POST | Send RSVP |
-| `/v3/grants/{id}/room-resources` | GET | List room resources |
+| `/v3/grants/{grant_id}/calendars/free-busy` | POST | Check free/busy |
+| `/v3/grants/{id}/events/{event_id}/send-rsvp` | POST | Send RSVP |
+| `/v3/grants/{grant_id}/resources` | GET | List room resources |
 
 ### Advanced Calendar Features
 

@@ -11,7 +11,8 @@ section: dashboard
 nylas dashboard register                      # Create account (SSO)
 nylas dashboard login                         # Log in
 nylas dashboard login --google|--microsoft|--github  # SSO providers
-nylas dashboard sso                           # SSO login
+nylas dashboard sso login --provider google   # SSO login
+nylas dashboard sso register --provider github # SSO registration
 nylas dashboard logout                        # Log out
 nylas dashboard status                        # Auth status
 nylas dashboard refresh                       # Refresh token

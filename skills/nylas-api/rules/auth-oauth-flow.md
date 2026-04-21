@@ -12,8 +12,10 @@ Nylas uses OAuth to connect user accounts. A **grant** represents an authenticat
 1. Create an application in the Nylas Dashboard
 2. Set up a connector (Google, Microsoft, etc.) with OAuth credentials
 3. Redirect users to Nylas hosted auth URL
-4. Nylas returns a `grant_id` representing the connected account
-5. Use your API key + grant ID to make API calls
+4. Nylas creates an unverified grant record after the provider auth succeeds
+5. Nylas redirects back to your callback URI with a one-time OAuth `code`
+6. Exchange the `code` with `POST /v3/connect/token`
+7. After the token exchange succeeds, Nylas marks the grant record as verified and returns a usable `grant_id`
 
 ```
 GET https://api.us.nylas.com/v3/connect/auth?
@@ -23,6 +25,8 @@ GET https://api.us.nylas.com/v3/connect/auth?
   &provider=google
   &scope=https://www.googleapis.com/auth/gmail.modify
 ```
+
+**Important:** Hosted OAuth does not return a usable grant ID directly in the browser redirect. Your backend must exchange the returned `code` at `POST /v3/connect/token`; the token-exchange response includes the usable `grant_id` for subsequent grant-scoped API calls.
 
 ### Hosted OAuth with Access Token + PKCE (for SPAs & mobile)
 
