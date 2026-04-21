@@ -117,7 +117,7 @@ Sources: `address_book` (default), `domain`, `inbox`. Profile pictures: `?profil
 
 **Payload variants:** `.truncated` applies only to oversized `message.*` notifications. `.transformed` indicates dashboard field customization for `message.*` or `event.*` notifications.
 
-**Verification:** Initial GET with `challenge` param; return exact value within 10s. **Security:** Verify `x-nylas-signature` (HMAC-SHA256). **Retries:** Nylas retries temporary delivery failures only for `408`, `429`, `502`, `503`, `504`, and `507`, up to two more times for three total attempts. Separately, Nylas marks an endpoint as `failing` after 95% non-`200` responses or non-responses over 15 minutes, continues delivery attempts for 72 hours, and then marks the endpoint `failed` if the failure rate stays above 95%.
+**Verification:** Initial GET with `challenge` param; return exact value within 10s. **Security:** Verify `x-nylas-signature` (HMAC-SHA256). **Retries:** Nylas retries temporary delivery failures only for `408`, `429`, `502`, `503`, `504`, and `507`, up to two more times for three total attempts. Separately, Nylas marks an endpoint as `failing` after 95% non-`200` responses or non-responses over 15 minutes, continues delivery attempts for 72 hours, and then marks the endpoint `failed` if the failure rate stays above 95%. Nylas does not automatically restart or reactivate `failed` endpoints, and it does not replay events that occurred while the endpoint was `failed`.
 
 ---
 
