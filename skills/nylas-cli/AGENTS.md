@@ -7,22 +7,27 @@ Compiled reference. Official docs source: https://cli.nylas.com/docs/commands
 ## 1. Setup & Configuration
 
 ```bash
-brew install nylas/nylas-cli/nylas            # Install
+brew install nylas/nylas-cli/nylas                 # Homebrew
+go install github.com/nylas/cli/cmd/nylas@latest  # Go
 nylas init [--api-key K] [--region eu] [--google|--microsoft|--github]
 nylas config list|get|set|reset|path          # Config management
 nylas completion bash|zsh|fish|powershell     # Shell completion
 nylas update                                  # Self-update
 ```
 
-Flags: `--json`, `--no-color`, `--verbose`, `--limit N`, `--yes`, `--config PATH`
+Prefer package-managed installs. If you use a hosted installer from `cli.nylas.com`, download it and inspect it before executing it instead of piping it directly into a shell.
+
+Flags: `--config PATH`, `--format table|json|yaml`, `--json`, `--no-color`, `--quiet`, `--verbose`, `--wide`
 Env: `NYLAS_API_KEY`, `NYLAS_CLIENT_ID`, `NYLAS_GRANT_ID`, `NYLAS_DISABLE_KEYRING`
 
 ## 2. Authentication
 
 ```bash
 nylas auth login [--provider microsoft]
-nylas auth config|list|show|status|whoami|switch <email>|logout|remove <grant-id>|token|scopes|providers|migrate
+nylas auth add|config|detect|list|show|status|whoami|switch <email>|logout|remove <grant-id>|revoke <grant-id>|token|scopes|providers|migrate
 ```
+
+`nylas auth remove` removes a grant from local CLI config only. Use `nylas auth revoke` to revoke the grant on the Nylas server.
 
 ## 3. Email
 
@@ -45,8 +50,9 @@ nylas calendar events list|show|create|update|delete|rsvp
 nylas calendar availability check
 nylas calendar find-time --participants P --duration D
 nylas calendar schedule ai "..."
-nylas calendar analyze
-nylas calendar ai conflicts|reschedule
+nylas calendar ai analyze
+nylas calendar ai conflicts check --title T --start RFC3339 --duration MIN
+nylas calendar ai reschedule ai <event-id>
 ```
 
 Calendar workflows: timezone conversion, DST warnings, timezone locking, working-hours validation, and break validation are covered by the dedicated calendar rule, the timezone utilities docs, and the command reference.
@@ -75,8 +81,9 @@ nylas inbound list|create|messages|monitor
 ## 8. Dashboard
 
 ```bash
-nylas dashboard register|login|sso|logout|status|refresh
+nylas dashboard register|login|logout|status|refresh
 nylas dashboard login --google|--microsoft|--github
+nylas dashboard sso login|register --provider google|microsoft|github
 nylas dashboard apps list|create|use
 nylas dashboard apps apikeys list|create
 nylas dashboard orgs list|switch
@@ -85,7 +92,7 @@ nylas dashboard orgs list|switch
 ## 9. MCP & AI
 
 ```bash
-nylas mcp install [--assistant claude-code|cursor] [--all]
+nylas mcp install [--assistant claude-desktop|claude-code|cursor|windsurf|vscode] [--all]
 nylas mcp status|uninstall|serve
 nylas chat [--agent claude|codex|ollama] [--model M] [--port P] [--no-browser]
 nylas ai config
@@ -113,10 +120,12 @@ nylas notetaker list
 nylas notetaker create --meeting-link "https://zoom.us/j/123456789"
 nylas notetaker show <notetaker-id>
 nylas notetaker media <notetaker-id>
-nylas notetaker delete <notetaker-id> --yes
+nylas notetaker delete <notetaker-id> --force
 ```
 
 Aliases: `nylas nt`, `nylas bot`
+
+`nylas notetaker list --state` currently supports `scheduled`, `connecting`, `attending`, `complete`, `cancelled`, and `failed`.
 
 ## 12. Audit Logging
 

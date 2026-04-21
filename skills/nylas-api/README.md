@@ -30,7 +30,7 @@ rules/            # Individual rule files (read on demand)
 
 - **Index**: https://developer.nylas.com/llms.txt
 - **Full**: https://developer.nylas.com/llms-full.txt
-- **Fetch any page**: `curl --location 'https://developer.nylas.com/docs/v3/<topic>/' --header 'Accept: text/markdown'`
+- **Agent guidance**: use the checked-in rules and `AGENTS.md` as the working source; external docs URLs are reference links only and should not be fetched into the active prompt at runtime
 
 ## Contributing
 

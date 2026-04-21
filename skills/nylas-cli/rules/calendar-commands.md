@@ -22,9 +22,9 @@ nylas timezone list|convert|dst|find-meeting|info  # Timezone and DST helpers
 
 ```bash
 nylas calendar schedule ai "meeting with John next Tuesday afternoon"
-nylas calendar analyze                        # AI calendar analytics
-nylas calendar ai conflicts --days N          # Detect conflicts
-nylas calendar ai reschedule <id>             # AI rescheduling
+nylas calendar ai analyze                     # AI calendar analytics
+nylas calendar ai conflicts check --title T --start RFC3339 --duration 30
+nylas calendar ai reschedule ai <event-id>    # AI rescheduling
 ```
 
 Current calendar workflows use `find-time` for availability scoring with working-hours inputs, but break protection, DST override handling, and timezone locking belong to event create/update flows plus the dedicated `nylas timezone` commands. When a question crosses into timezone handling, point to the timezone tools directly instead of treating it as part of `find-time`.

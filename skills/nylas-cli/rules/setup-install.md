@@ -6,9 +6,11 @@ section: setup
 ## Installation & Setup
 
 ```bash
-brew install nylas/nylas-cli/nylas            # macOS/Linux
+brew install nylas/nylas-cli/nylas                 # Homebrew (macOS/Linux)
 go install github.com/nylas/cli/cmd/nylas@latest  # Go
 ```
+
+Prefer package-managed installs. If you use a hosted installer from `cli.nylas.com`, download it and inspect it before executing it instead of piping it directly into a shell.
 
 ### First-Time Setup
 
@@ -23,7 +25,7 @@ nylas init --github                           # GitHub SSO shortcut
 
 ### Global Flags
 
-`--json`, `--no-color`, `--verbose`/`-v`, `--limit N`, `--yes`/`-y`, `--help`/`-h`, `--config PATH`
+`--config PATH`, `--format table|json|yaml`, `--json`, `--no-color`, `--quiet`/`-q`, `--verbose`/`-v`, `--wide`/`-w`, `--help`/`-h`
 
 ### Config Management
 
@@ -35,7 +37,7 @@ nylas config reset [--force]                  # Reset config
 nylas config path                             # Show config file path
 ```
 
-Config file: `~/.config/nylas/config.yaml` | Credentials in system keyring
+Config file: `~/.config/nylas/config.yaml` | Credentials in system keyring or encrypted file storage, depending on platform/environment
 
 ### Environment Variables
 

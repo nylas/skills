@@ -21,7 +21,7 @@ AI-powered email composition and reply suggestions.
 | Endpoint | Methods | Purpose |
 |----------|---------|---------|
 | `/v3/grants/{id}/messages/smart-compose` | POST | Generate email draft |
-| `/v3/grants/{id}/messages/smart-compose/reply` | POST | Generate reply |
+| `/v3/grants/{id}/messages/{message_id}/smart-compose` | POST | Generate a reply to a specific message |
 
 Reference: https://developer.nylas.com/docs/v3/email/smart-compose/
 
@@ -31,7 +31,7 @@ Reusable email templates at app-level and grant-level, plus automated workflows.
 
 | Endpoint | Purpose |
 |----------|---------|
-| `/v3/grants/{id}/messages/templates` | Grant-level templates |
+| `/v3/grants/{id}/templates` | Grant-level templates |
 | `/v3/templates` | App-level templates |
 | `/v3/grants/{id}/workflows` | Grant-level workflows |
 | `/v3/workflows` | App-level workflows |
@@ -57,7 +57,7 @@ Send emails without a grant using verified domains. No OAuth required.
 |----------|---------|
 | `/v3/domains/{domain_name}/messages/send` | Send transactional email |
 
-Reference: https://developer.nylas.com/docs/v3/email/transactional-send-banner/
+Reference: https://developer.nylas.com/docs/v3/getting-started/transactional-send/
 
 ### Other Email Features
 

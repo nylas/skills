@@ -15,9 +15,9 @@ nylas notetaker create --meeting-link URL --bot-name "Meeting Recorder"
 nylas notetaker show <id>                    # Show notetaker details
 nylas notetaker media <id>                   # Show recording and transcript links
 nylas notetaker delete <id>                  # Cancel a notetaker
-nylas notetaker delete <id> --yes            # Skip confirmation
+nylas notetaker delete <id> --force          # Skip confirmation
 nylas nt list                                # Alias for list
 nylas bot create --meeting-link URL          # Alias for create
 ```
 
-Use this section for Nylas Notetaker bots that join meetings to record and transcribe. The upstream CLI docs cover Zoom, Google Meet, and Microsoft Teams, plus the `scheduled`, `connecting`, `waiting`, `attending`, `processing`, `complete`, `cancelled`, and `failed` states, so route `nylas notetaker`, `nylas nt`, and `nylas bot` questions here.
+Use this section for Nylas Notetaker bots that join meetings to record and transcribe. The CLI supports Zoom, Google Meet, and Microsoft Teams, and `nylas notetaker list --state` currently accepts `scheduled`, `connecting`, `attending`, `complete`, `cancelled`, and `failed`. Route `nylas notetaker`, `nylas nt`, and `nylas bot` questions here.

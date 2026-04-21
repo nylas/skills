@@ -23,10 +23,10 @@ Alternative to webhooks using Google Cloud Pub/Sub.
 
 | Endpoint | Methods | Purpose |
 |----------|---------|---------|
-| `/v3/channels` | GET, POST | List/create Pub/Sub channels |
-| `/v3/channels/{id}` | GET, PUT, DELETE | Manage channel |
+| `/v3/channels/pubsub` | GET, POST | List/create Pub/Sub channels |
+| `/v3/channels/pubsub/{id}` | GET, PUT, DELETE | Manage channel |
 
-### Trigger Types
+### Common Trigger Types
 
 **Messages:** `message.created`, `message.updated`, `message.created.metadata` (Google), `message.updated.metadata` (Google)
 **Events:** `event.created`, `event.updated`, `event.deleted`
@@ -35,7 +35,7 @@ Alternative to webhooks using Google Cloud Pub/Sub.
 **Grants:** `grant.created`, `grant.updated`, `grant.deleted`, `grant.expired`
 **Notetaker:** `notetaker.created`, `notetaker.updated`, `notetaker.meeting_state`, `notetaker.media`, `notetaker.deleted`
 
-**Payload variants:** `.truncated` only for `message.*` triggers when payloads exceed 1 MB; other notification types are always sent in full. Re-query truncated messages via API. `.transformed` means custom field selection was applied.
+**Payload variants:** `.truncated` is used only for `message.*` triggers when the payload exceeds 1 MB; other notification types are always sent in full. Re-query truncated messages via API. `.transformed` is used for customized `message.*` and `event.*` webhook payloads when field selection is enabled in the dashboard.
 
 ### Webhook Verification
 
@@ -47,6 +47,8 @@ Every notification includes an `x-nylas-signature` header — HMAC-SHA256 of the
 
 ### Retry Behavior
 
-Nylas marks an endpoint as `failing` after 95% non-`200` responses or non-responses over 15 minutes. While it is `failing`, Nylas continues retrying delivery with exponential backoff for 72 hours. If failures stay above 95% over that 72-hour window, the endpoint becomes `failed` and requires manual reactivation.
+If Nylas receives one of these temporary failure responses for a webhook notification, it retries delivery up to two more times for a total of three attempts, backing off exponentially: `408`, `429`, `502`, `503`, `504`, and `507`. The final attempt happens 10-20 minutes after the first.
+
+Separately, Nylas marks an endpoint as `failing` after 95% non-`200` responses or non-responses over 15 minutes. While the endpoint is `failing`, Nylas continues delivery attempts for 72 hours. If failures remain above 95% over that 72-hour window, the endpoint becomes `failed` and must be manually reactivated.
 
 Reference: [Notifications docs](https://developer.nylas.com/docs/v3/notifications/) | [Notification schemas](https://developer.nylas.com/docs/v3/notifications/notification-schemas/) | [Pub/Sub](https://developer.nylas.com/docs/v3/notifications/pubsub-channel/) | [Webhook best practices](https://developer.nylas.com/docs/dev-guide/best-practices/webhook-best-practices/)

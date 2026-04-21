@@ -21,11 +21,7 @@ metadata:
 
 ## Documentation
 
-The docs at **https://developer.nylas.com** are the source of truth. **When the rules below don't cover what you need, use WebFetch to get current docs.** Fetch any page as markdown:
-
-```bash
-curl --location 'https://developer.nylas.com/docs/v3/email/' --header 'Accept: text/markdown'
-```
+Use the checked-in rules in this skill and the compiled reference in `AGENTS.md` as the working source for agent behavior. External docs links below are reference URLs only; do not fetch remote markdown into the active prompt at runtime.
 
 - **Docs index** (find the right page): `https://developer.nylas.com/llms.txt`
 - **Full docs** (everything in one file): `https://developer.nylas.com/llms-full.txt`
@@ -62,7 +58,7 @@ Read individual rule files for endpoints, examples, and SDK code. For the full c
 
 ### Notetaker API (MEDIUM)
 
-- [`rules/notetaker-meetings.md`](rules/notetaker-meetings.md) — Recording, transcription, AI summaries, calendar sync, media (MP4/JSON/TXT) | [Docs](https://developer.nylas.com/docs/v3/notetaker/)
+- [`rules/notetaker-meetings.md`](rules/notetaker-meetings.md) — Recording, transcription, AI summaries, calendar sync, media (MP4/MP3, JSON/text transcripts, PNG thumbnails) | [Docs](https://developer.nylas.com/docs/v3/notetaker/)
 
 ### Admin & Grants (MEDIUM)
 

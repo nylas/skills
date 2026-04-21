@@ -1,6 +1,6 @@
 # Nylas v3 API Reference
 
-Compiled reference for the Nylas v3 API. For the latest details, fetch docs as markdown: `curl --location 'https://developer.nylas.com/docs/v3/<topic>/' --header 'Accept: text/markdown'`
+Compiled reference for the Nylas v3 API. Use this file and the local rule files as the operative guidance for the skill. External docs links are reference URLs only; do not fetch remote markdown into the active prompt at runtime.
 
 ---
 
@@ -27,6 +27,8 @@ GET https://api.us.nylas.com/v3/connect/auth?
   &provider=google
 ```
 
+Hosted OAuth redirects back to your callback with a one-time `code`, not a usable grant ID. Exchange the `code` at `POST /v3/connect/token`; Nylas then marks the grant record as verified and returns the usable `grant_id`.
+
 ### API Auth (most requests)
 
 ```bash
@@ -46,19 +48,26 @@ Google (OAuth), Microsoft (OAuth), Yahoo (OAuth), iCloud (app password), IMAP (u
 
 | Endpoint | Methods | Purpose |
 |----------|---------|---------|
-| `/v3/grants/{id}/messages` | GET, PUT, DELETE | List, update, delete messages |
+| `/v3/grants/{id}/messages` | GET | List messages |
+| `/v3/grants/{id}/messages/{message_id}` | GET, PUT, DELETE | Get, update, or delete a message |
 | `/v3/grants/{id}/messages/send` | POST | Send email (JSON or multipart) |
 | `/v3/grants/{id}/messages/clean` | PUT | Clean/parse message HTML |
-| `/v3/grants/{id}/messages/{id}/attachments` | GET | List attachments |
-| `/v3/grants/{id}/messages/{id}/attachments/{id}/download` | GET | Download (25 MB limit) |
-| `/v3/grants/{id}/threads` | GET, PUT, DELETE | Threads |
-| `/v3/grants/{id}/drafts` | GET, POST, PUT, DELETE | Drafts |
-| `/v3/grants/{id}/folders` | GET, POST, PUT, DELETE | Folders/labels |
+| `/v3/grants/{id}/attachments/{attachment_id}` | GET | Attachment metadata (`message_id` query param required) |
+| `/v3/grants/{id}/attachments/{attachment_id}/download` | GET | Download attachment (`message_id` query param required) |
+| `/v3/grants/{id}/threads` | GET | List threads |
+| `/v3/grants/{id}/threads/{thread_id}` | GET, PUT, DELETE | Get, update, or delete a thread |
+| `/v3/grants/{id}/drafts` | GET, POST | List or create drafts |
+| `/v3/grants/{id}/drafts/{draft_id}` | GET, PUT, DELETE | Get, update, or delete a draft |
+| `/v3/grants/{id}/drafts/{draft_id}` | POST | Send draft |
+| `/v3/grants/{id}/folders` | GET, POST | List or create folders/labels |
+| `/v3/grants/{id}/folders/{folder_id}` | GET, PUT, DELETE | Get, update, or delete a folder/label |
 | `/v3/grants/{id}/messages/smart-compose` | POST | AI draft generation |
-| `/v3/grants/{id}/messages/smart-compose/reply` | POST | AI reply generation |
+| `/v3/grants/{id}/messages/{message_id}/smart-compose` | POST | AI reply generation |
 | `/v3/grants/{id}/messages/schedules` | GET | Scheduled messages |
-| `/v3/grants/{id}/messages/templates` | CRUD | Grant-level templates |
+| `/v3/grants/{id}/templates` | CRUD | Grant-level templates |
 | `/v3/templates` | CRUD | App-level templates |
+| `/v3/grants/{id}/workflows` | CRUD | Grant-level workflows |
+| `/v3/workflows` | CRUD | App-level workflows |
 | `/v3/domains/{domain_name}/messages/send` | POST | Transactional send (no grant, Beta) |
 
 **Filters:** `limit`, `subject`, `from`, `to`, `unread`, `starred`, `has_attachment`, `received_before`, `received_after`, `in`, `search_query_native`, `select`
@@ -69,12 +78,14 @@ Google (OAuth), Microsoft (OAuth), Yahoo (OAuth), iCloud (app password), IMAP (u
 
 | Endpoint | Methods | Purpose |
 |----------|---------|---------|
-| `/v3/grants/{id}/calendars` | GET, POST, PUT, DELETE | CRUD calendars |
-| `/v3/grants/{id}/events` | GET, POST, PUT, DELETE | CRUD events |
-| `/v3/grants/{id}/events/{id}/send-rsvp` | POST | RSVP |
+| `/v3/grants/{id}/calendars` | GET, POST | List or create calendars |
+| `/v3/grants/{id}/calendars/{calendar_id}` | GET, PUT, DELETE | Get, update, or delete a calendar |
+| `/v3/grants/{id}/events` | GET, POST | List or create events |
+| `/v3/grants/{id}/events/{event_id}` | GET, PUT, DELETE | Get, update, or delete an event |
+| `/v3/grants/{id}/events/{event_id}/send-rsvp` | POST | RSVP |
 | `/v3/calendars/availability` | POST | Check availability |
-| `/v3/calendars/free-busy` | POST | Check free/busy |
-| `/v3/grants/{id}/room-resources` | GET | Room resources |
+| `/v3/grants/{grant_id}/calendars/free-busy` | POST | Check free/busy |
+| `/v3/grants/{grant_id}/resources` | GET | Room resources |
 
 Supports: recurring events, virtual calendars, conferencing (Zoom/Teams), group booking.
 
@@ -100,13 +111,13 @@ Sources: `address_book` (default), `domain`, `inbox`. Profile pictures: `?profil
 | `/v3/webhooks/mock-payload` | Get mock notification payload for a trigger |
 | `/v3/webhooks/send-test-event` | Send test event to a webhook endpoint |
 | `/v3/webhooks/rotate-secret/{id}` | Rotate secret |
-| `/v3/channels` | CRUD Pub/Sub channels |
+| `/v3/channels/pubsub` | CRUD Pub/Sub channels |
 
-**Triggers:** message.created/updated, event.created/updated/deleted, contact.created/updated/deleted, calendar.created/updated/deleted, grant.created/updated/deleted/expired, notetaker.created/updated/meeting_state/media/deleted
+**Common triggers:** message.created/updated, event.created/updated/deleted, contact.created/updated/deleted, calendar.created/updated/deleted, grant.created/updated/deleted/expired, notetaker.created/updated/meeting_state/media/deleted
 
-**Payload variants:** `.truncated` only for `message.*` triggers when payloads exceed 1 MB; other notification types are always sent in full. `.transformed` indicates custom field selection was applied.
+**Payload variants:** `.truncated` applies only to oversized `message.*` notifications. `.transformed` indicates dashboard field customization for `message.*` or `event.*` notifications.
 
-**Verification:** Initial GET with `challenge` param; return exact value within 10s. **Security:** Verify `x-nylas-signature` (HMAC-SHA256). **Retries:** Nylas marks an endpoint as `failing` after 95% non-`200` responses or non-responses over 15 minutes, continues exponential-backoff retries for 72 hours, and then marks the endpoint `failed` if the failure rate stays above 95%.
+**Verification:** Initial GET with `challenge` param; return exact value within 10s. **Security:** Verify `x-nylas-signature` (HMAC-SHA256). **Retries:** Nylas retries temporary delivery failures only for `408`, `429`, `502`, `503`, `504`, and `507`, up to two more times for three total attempts. Separately, Nylas marks an endpoint as `failing` after 95% non-`200` responses or non-responses over 15 minutes, continues delivery attempts for 72 hours, and then marks the endpoint `failed` if the failure rate stays above 95%.
 
 ---
 
@@ -127,12 +138,16 @@ Meeting types: 1:1, collective, round-robin, group. Hosted pages at book.nylas.c
 
 | Endpoint | Purpose |
 |----------|---------|
-| `/v3/grants/{id}/notetakers` | Grant-scoped CRUD |
+| `/v3/grants/{grant_id}/notetakers` | Grant-scoped CRUD |
 | `/v3/notetakers` | Standalone CRUD |
-| `/v3/*/notetakers/{id}/media` | Get media (MP4, JSON, JPG, TXT) |
-| `/v3/*/notetakers/{id}/history` | Status history |
-| `/v3/*/notetakers/{id}/leave` | Leave meeting |
-| `/v3/*/notetakers/{id}/cancel` | Cancel scheduled |
+| `/v3/grants/{grant_id}/notetakers/{notetaker_id}/media` | Grant-scoped media |
+| `/v3/notetakers/{notetaker_id}/media` | Standalone media |
+| `/v3/grants/{grant_id}/notetakers/{notetaker_id}/history` | Grant-scoped status history |
+| `/v3/notetakers/{notetaker_id}/history` | Standalone status history |
+| `/v3/grants/{grant_id}/notetakers/{notetaker_id}/leave` | Grant-scoped leave |
+| `/v3/notetakers/{notetaker_id}/leave` | Standalone leave |
+| `/v3/grants/{grant_id}/notetakers/{notetaker_id}/cancel` | Grant-scoped cancel |
+| `/v3/notetakers/{notetaker_id}/cancel` | Standalone cancel |
 
 Supports Google Meet, Microsoft Teams, Zoom. AI summaries + action items. Silence detection (default 5 min).
 
