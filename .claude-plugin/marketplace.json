@@ -13,7 +13,7 @@
       "name": "nylas-skills",
       "description": "Build email, calendar, and contacts integrations with the Nylas API and CLI",
       "source": "./",
-      "strict": false,
+      "strict": true,
       "version": "1.0.0",
       "category": "communications",
       "tags": ["email", "calendar", "contacts", "nylas", "api", "cli", "oauth"],
