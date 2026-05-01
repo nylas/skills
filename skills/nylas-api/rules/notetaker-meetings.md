@@ -42,7 +42,7 @@ AI meeting recording, transcription, summaries, and action items. Supports **Goo
 
 Notetaker leaves after 5 minutes (300s) of silence by default. Configurable via `leave_after_silence_seconds` (10-3600s).
 
-Media URLs in `notetaker.media` payloads are pre-authenticated and valid for 60 minutes. Fetch the media endpoint again to regenerate expired URLs.
+Media URLs in `notetaker.media` payloads are pre-authenticated and valid for 60 minutes. Call the media endpoint again to regenerate expired URLs.
 
 ### Webhook Triggers
 

@@ -30,6 +30,6 @@ section: auth
 - Shared folders: https://developer.nylas.com/docs/provider-guides/microsoft/shared-folders/
 - Troubleshooting: https://developer.nylas.com/docs/provider-guides/microsoft/troubleshooting/
 
-**For detailed provider setup, use WebFetch on the guide links above.**
+**Detailed provider setup steps live in the linked guides above.**
 
 Reference: [All provider guides](https://developer.nylas.com/docs/provider-guides/)

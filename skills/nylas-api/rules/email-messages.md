@@ -36,6 +36,6 @@ curl -X POST "https://api.us.nylas.com/v3/grants/<GRANT_ID>/messages/send" \
 
 **Filters:** `limit`, `subject`, `from`, `to`, `unread`, `starred`, `has_attachment`, `received_before`, `received_after`, `in`, `search_query_native`, `select` (field selection to reduce payload)
 
-**Note:** Use `select` parameter to return only needed fields. To discover attachment IDs, fetch the message and select `attachments` (for example, `GET /messages/{message_id}?select=attachments`). The 25 MB limit applies to multipart upload/send requests, not attachment downloads. The Threads endpoint makes many provider calls per request, so use filters and limits to avoid rate limiting.
+**Note:** Use `select` parameter to return only needed fields. To discover attachment IDs, retrieve the message and select `attachments` (for example, `GET /messages/{message_id}?select=attachments`). The 25 MB limit applies to multipart upload/send requests, not attachment downloads. The Threads endpoint makes many provider calls per request, so use filters and limits to avoid rate limiting.
 
 Reference: [Email docs](https://developer.nylas.com/docs/v3/email/) | [Messages API](https://developer.nylas.com/docs/v3/email/messages/) | [Threads](https://developer.nylas.com/docs/v3/email/threads/) | [Attachments](https://developer.nylas.com/docs/v3/email/attachments/)
