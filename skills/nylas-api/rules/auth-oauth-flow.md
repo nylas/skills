@@ -59,6 +59,6 @@ curl -X GET "https://api.us.nylas.com/v3/grants/<GRANT_ID>/messages" \
 - Monitor `grant.expired` webhooks to trigger re-authentication
 - Re-authenticating preserves the grant ID and sync state
 
-**For detailed auth flows, use WebFetch on the doc links above.**
+**Detailed auth flows are documented at the linked references above.**
 
 Reference: [Auth overview](https://developer.nylas.com/docs/v3/auth/) | [Troubleshooting](https://developer.nylas.com/docs/v3/auth/troubleshooting/)

@@ -1,6 +1,6 @@
 # Nylas v3 API Reference
 
-Compiled reference for the Nylas v3 API. Use this file and the local rule files as the operative guidance for the skill. External docs links are reference URLs only; do not fetch remote markdown into the active prompt at runtime.
+Compiled reference for the Nylas v3 API. Use this file and the local rule files as the operative guidance for the skill. External docs links are reference URLs only; do not load remote markdown into the active prompt at runtime.
 
 ---
 

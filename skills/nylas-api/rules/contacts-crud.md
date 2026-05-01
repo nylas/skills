@@ -13,7 +13,7 @@ section: contacts
 
 ### Contact Sources
 
-Use the `source` query parameter to control where contacts are fetched from:
+Use the `source` query parameter to control where contacts are retrieved from:
 
 | Source | Description |
 |--------|-------------|

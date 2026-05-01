@@ -21,7 +21,7 @@ metadata:
 
 ## Documentation
 
-Use the checked-in rules in this skill and the compiled reference in `AGENTS.md` as the working source for agent behavior. External docs links below are reference URLs only; do not fetch remote markdown into the active prompt at runtime.
+Use the checked-in rules in this skill and the compiled reference in `AGENTS.md` as the working source for agent behavior. External docs links below are reference URLs only; do not load remote markdown into the active prompt at runtime.
 
 - **Docs index** (find the right page): `https://developer.nylas.com/llms.txt`
 - **Full docs** (everything in one file): `https://developer.nylas.com/llms-full.txt`
