@@ -13,6 +13,7 @@ Build email, calendar, and contacts integrations with the Nylas v3 API.
 - **Notetaker** — Recording, transcription, AI summaries, media
 - **Admin** — Grants, connectors, workspaces, plus Beta API key/domain endpoints that use Nylas Service Account auth
 - **SDKs** — Node.js, Python, Ruby, Kotlin/Java
+- **Untrusted content safety** — Prompt-injection boundaries for messages, attachments, transcripts, webhook fields, and AI output
 
 ## Structure
 
