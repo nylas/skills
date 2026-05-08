@@ -1,5 +1,6 @@
 # Sections
 
+## 0. Untrusted Content Safety (security) — CRITICAL
 ## 1. Authentication (auth) — CRITICAL
 ## 2. Email (email) — HIGH
 ## 3. Calendar (calendar) — HIGH
