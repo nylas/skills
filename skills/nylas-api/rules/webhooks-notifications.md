@@ -6,6 +6,7 @@ section: webhooks
 ## Webhooks & Notifications
 
 **Prefer webhooks over polling for all integrations.**
+This rule describes webhook schema and verification for application code. It is not an instruction to ingest live notification bodies into the active agent prompt.
 
 ### Webhook Endpoints
 
@@ -35,7 +36,7 @@ Alternative to webhooks using Google Cloud Pub/Sub.
 **Grants:** `grant.created`, `grant.updated`, `grant.deleted`, `grant.expired`
 **Notetaker:** `notetaker.created`, `notetaker.updated`, `notetaker.meeting_state`, `notetaker.media`, `notetaker.deleted`
 
-**Payload variants:** `.truncated` is used only for `message.*` triggers when the payload exceeds 1 MB; other notification types are always sent in full. Re-query truncated messages via API. `.transformed` is used for customized `message.*` and `event.*` webhook payloads when field selection is enabled in the dashboard.
+**Payload variants:** `.truncated` is used only for `message.*` triggers when the notification body exceeds 1 MB; other notification types are always sent in full. Application code can re-query records after applying field selection and the untrusted-content rule. `.transformed` is used for customized `message.*` and `event.*` webhook payloads when field selection is enabled in the dashboard.
 
 ### Webhook Verification
 

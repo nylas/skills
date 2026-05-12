@@ -35,7 +35,7 @@ Same redirect flow, but uses PKCE challenge for token exchange. Developer manage
 ### API Authentication (all requests)
 
 ```bash
-curl -X GET "https://api.us.nylas.com/v3/grants/<GRANT_ID>/messages" \
+curl -X GET "https://api.us.nylas.com/v3/grants/<GRANT_ID>" \
   -H "Authorization: Bearer <NYLAS_API_KEY>" \
   -H "Content-Type: application/json"
 ```
