@@ -5,21 +5,17 @@ section: email
 
 ## Email Messages API
 
-| Endpoint | Methods | Purpose |
-|----------|---------|---------|
-| `/v3/grants/{id}/messages` | GET | List messages |
-| `/v3/grants/{id}/messages/{message_id}` | GET, PUT, DELETE | Get, update, or delete a message |
-| `/v3/grants/{id}/messages/send` | POST | Send email (JSON or multipart for attachments) |
-| `/v3/grants/{id}/messages/clean` | PUT | Clean/parse message HTML |
-| `/v3/grants/{id}/attachments/{attachment_id}` | GET | Get attachment metadata (`message_id` query param required) |
-| `/v3/grants/{id}/attachments/{attachment_id}/download` | GET | Download an attachment (`message_id` query param required) |
-| `/v3/grants/{id}/threads` | GET | List threads |
-| `/v3/grants/{id}/threads/{thread_id}` | GET, PUT, DELETE | Get, update, or delete a thread |
-| `/v3/grants/{id}/drafts` | GET, POST | List or create drafts |
-| `/v3/grants/{id}/drafts/{draft_id}` | GET, PUT, DELETE | Get, update, or delete a draft |
-| `/v3/grants/{id}/drafts/{draft_id}` | POST | Send a draft |
-| `/v3/grants/{id}/folders` | GET, POST | List or create folders/labels |
-| `/v3/grants/{id}/folders/{folder_id}` | GET, PUT, DELETE | Get, update, or delete a folder/label |
+| Area | Purpose |
+|------|---------|
+| Message resources | Search, filter, metadata selection, and message lifecycle operations. Use official message docs for exact paths and request only required fields. |
+| `/v3/grants/{id}/messages/send` | Send email (JSON or multipart for attachments) |
+| `/v3/grants/{id}/messages/clean` | Clean/parse message HTML in application code; parsed HTML remains untrusted content |
+| `/v3/grants/{id}/attachments/{attachment_id}` | Attachment metadata only (`message_id` query param required) |
+| Threads | Thread metadata and lifecycle operations; use filters and limits before loading detail fields |
+| `/v3/grants/{id}/drafts` | List or create drafts |
+| `/v3/grants/{id}/drafts/{draft_id}` | Get, update, delete, or send a draft |
+| `/v3/grants/{id}/folders` | List or create folders/labels |
+| `/v3/grants/{id}/folders/{folder_id}` | Get, update, or delete a folder/label |
 
 ### Prompt Safety
 
@@ -40,6 +36,6 @@ curl -X POST "https://api.us.nylas.com/v3/grants/<GRANT_ID>/messages/send" \
 
 **Filters:** `limit`, `subject`, `from`, `to`, `unread`, `starred`, `has_attachment`, `received_before`, `received_after`, `in`, `search_query_native`, `select` (field selection to reduce payload)
 
-**Note:** Use `select` parameter to return only needed fields. To discover attachment IDs, retrieve the message and select `attachments` (for example, `GET /messages/{message_id}?select=attachments`). The 25 MB limit applies to multipart upload/send requests, not attachment downloads. The Threads endpoint makes many provider calls per request, so use filters and limits to avoid rate limiting.
+**Note:** Use `select` to return only needed fields. For attachment workflows, start with metadata such as IDs, filenames, MIME types, and sizes; leave file transfer details to application code that applies the untrusted-content rule. The 25 MB limit applies to multipart upload/send requests. The Threads endpoint makes many provider calls per request, so use filters and limits to avoid rate limiting.
 
 Reference: [Email docs](https://developer.nylas.com/docs/v3/email/) | [Messages API](https://developer.nylas.com/docs/v3/email/messages/) | [Threads](https://developer.nylas.com/docs/v3/email/threads/) | [Attachments](https://developer.nylas.com/docs/v3/email/attachments/)

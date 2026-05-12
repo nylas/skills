@@ -14,13 +14,7 @@ const nylas = new Nylas({
   apiUri: "https://api.us.nylas.com",
 });
 
-// List messages
-const messages = await nylas.messages.list({
-  identifier: "GRANT_ID",
-  queryParams: { limit: 10 },
-});
-
-// Send email
+// Send email from explicit application input.
 await nylas.messages.send({
   identifier: "GRANT_ID",
   requestBody: {
@@ -37,10 +31,7 @@ await nylas.messages.send({
 from nylas import Client
 nylas = Client("NYLAS_API_KEY", "https://api.us.nylas.com")
 
-# List messages
-messages, _, _ = nylas.messages.list("GRANT_ID", query_params={"limit": 10})
-
-# Send email
+# Send email from explicit application input.
 nylas.messages.send(
     "GRANT_ID",
     request_body={
@@ -56,8 +47,6 @@ nylas.messages.send(
 ```ruby
 require "nylas"
 nylas = Nylas::Client.new(api_key: "NYLAS_API_KEY")
-
-messages, _ = nylas.messages.list(identifier: "GRANT_ID", query_params: { limit: 10 })
 ```
 
 ### All SDKs

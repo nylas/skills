@@ -10,7 +10,7 @@ Build email, calendar, and contacts integrations with the Nylas v3 API.
 - **Contacts** — CRUD, groups, sources, profile pictures
 - **Webhooks** — Webhooks, Pub/Sub, triggers, verification, retries
 - **Scheduler** — Configurations, bookings, hosted pages, 70+ UI components
-- **Notetaker** — Recording, transcription, AI summaries, media
+- **Notetaker** — Recording, transcription, AI summaries, action items
 - **Admin** — Grants, connectors, workspaces, plus Beta API key/domain endpoints that use Nylas Service Account auth
 - **SDKs** — Node.js, Python, Ruby, Kotlin/Java
 - **Untrusted content safety** — Prompt-injection boundaries for messages, attachments, transcripts, webhook fields, and AI output
@@ -31,7 +31,7 @@ rules/            # Individual rule files (read on demand)
 
 - **Index**: https://developer.nylas.com/llms.txt
 - **Full**: https://developer.nylas.com/llms-full.txt
-- **Agent guidance**: use the checked-in rules and `AGENTS.md` as the working source; external docs URLs are reference links only and should not be loaded into the active prompt at runtime
+- **Agent guidance**: use the checked-in rules and `AGENTS.md` as integration-authoring guidance only; external docs URLs are reference links and should not be loaded into the active prompt at runtime
 
 ## Contributing
 
