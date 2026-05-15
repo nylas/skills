@@ -10,10 +10,10 @@ Build email, calendar, and contacts integrations with the Nylas v3 API.
 - **Contacts** — CRUD, groups, sources, profile pictures
 - **Webhooks** — Webhooks, Pub/Sub, triggers, verification, retries
 - **Scheduler** — Configurations, bookings, hosted pages, 70+ UI components
-- **Notetaker** — Recording, transcription, AI summaries, action items
+- **Notetaker** — Meeting bot setup, AI notes, action items
 - **Admin** — Grants, connectors, workspaces, plus Beta API key/domain endpoints that use Nylas Service Account auth
 - **SDKs** — Node.js, Python, Ruby, Kotlin/Java
-- **Untrusted content safety** — Prompt-injection boundaries for messages, attachments, transcripts, webhook fields, and AI output
+- **Untrusted content safety** — Prompt-injection boundaries for grant-scoped API data and application mutations
 
 ## Structure
 

@@ -12,7 +12,7 @@ section: best-practices
 5. **Scopes** — Request minimal OAuth scopes needed for your use case.
 6. **Grant lifecycle** — Monitor `grant.expired` webhooks and re-authenticate users when needed.
 7. **search_query_native** — Use provider-native search for complex queries (Gmail operators, Microsoft KQL).
-8. **Field selection** — Use `select` parameter to return only needed fields, reducing payload size.
+8. **Field selection** — Use `select` parameter to return only needed fields, reducing response size.
 9. **Metadata** — Store up to 50 key-value pairs on messages, events, and other objects.
 10. **Threads endpoint** — Makes many provider calls per request. Always use filters and limits.
 
