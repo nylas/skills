@@ -10,7 +10,7 @@ Build email, calendar, and contacts integrations with the Nylas v3 API.
 
 **Use when:** code imports `nylas`/`@nylas/nylas`/`nylas-python`, or user asks about Nylas API, OAuth, webhooks, scheduler, notetaker, smart compose, transactional send.
 
-**Covers:** Authentication (6 methods), Security & Prompt Safety (untrusted messages/attachments/transcripts/AI output), Email (messages/threads/drafts/tracking/smart compose/templates/transactional), Calendar (events/availability/recurring/conferencing), Contacts, Webhooks & Pub/Sub, Scheduler (70+ UI components), Notetaker (recording/transcription/AI summaries), Admin (grants/connectors/API keys/domains), SDKs (Node.js/Python/Ruby/Kotlin), Best Practices (rate limits, error codes).
+**Covers:** Authentication (6 methods), Security & Prompt Safety (grant-scoped API data), Email (messages/threads/drafts/tracking/smart compose/templates/transactional), Calendar (events/availability/recurring/conferencing), Contacts, Webhooks & Pub/Sub, Scheduler (70+ UI components), Notetaker (meeting bot setup/AI notes), Admin (grants/connectors/API keys/domains), SDKs (Node.js/Python/Ruby/Kotlin), Best Practices (rate limits, error codes).
 
 **Docs source:** [developer.nylas.com](https://developer.nylas.com) — skills keep checked-in rules as the working source and use external docs links as reference URLs only.
 
