@@ -1,6 +1,6 @@
 ---
 name: nylas-cli
-description: "Use the Nylas CLI to manage email, calendar, contacts, Slack, and Notetaker from the terminal. Use when user asks about Nylas CLI commands, nylas init, nylas email, nylas calendar, nylas contacts, nylas auth, nylas mcp, nylas chat, nylas slack, nylas notetaker, nylas tui, nylas air, nylas audit, or terminal-based email/calendar management. DO NOT use for Nylas API SDK integration."
+description: "Use the Nylas CLI to manage email, calendar, contacts, Slack, and Notetaker from the terminal. Use when user asks about Nylas CLI commands, nylas init, nylas email, nylas calendar, nylas contacts, nylas auth, nylas agent, agent accounts, nylas mcp, nylas chat, nylas slack, nylas notetaker, nylas otp, nylas tui, nylas air, nylas audit, nylas doctor, or terminal-based email/calendar management. DO NOT use for Nylas API SDK integration."
 compatibility: "Requires the Nylas CLI installed via Homebrew or Go. Hosted installers from cli.nylas.com are optional, but should be downloaded and inspected before execution."
 license: MIT
 metadata:
@@ -8,7 +8,7 @@ metadata:
   version: "2.0.0"
   organization: Nylas
   date: March 2026
-  abstract: CLI reference covering setup, auth, email, calendar, contacts, webhooks, agent accounts, inbound email, timezone utilities, dashboard, MCP, AI chat, Slack integration, Notetaker, audit logging, tools/interfaces, and advanced command families and workflows.
+  abstract: CLI reference covering setup, auth, email, calendar, contacts, webhooks, agent accounts, timezone utilities, dashboard, MCP, AI chat, Slack integration, Notetaker, OTP codes, audit logging, diagnostics, tools/interfaces, and advanced command families and workflows.
 ---
 
 # Nylas CLI Reference
@@ -26,7 +26,7 @@ Read individual rule files for command references. For the full compiled referen
 
 ### Setup & Configuration (CRITICAL)
 
-- [`rules/setup-install.md`](rules/setup-install.md) — Installation, init (with SSO shortcuts), global flags, config management, env vars, shell completion, self-update
+- [`rules/setup-install.md`](rules/setup-install.md) — Installation, init (with SSO shortcuts), global flags, config management, env vars, shell completion, self-update, `nylas doctor` diagnostics
 
 ### Authentication (CRITICAL)
 
@@ -44,13 +44,13 @@ Read individual rule files for command references. For the full compiled referen
 
 - [`rules/contacts-commands.md`](rules/contacts-commands.md) — CRUD, search, sync, groups
 
+### Agent Accounts (HIGH)
+
+- [`rules/agent-commands.md`](rules/agent-commands.md) — Managed email identities for AI agents: `nylas agent account|policy|rule|status` and `nylas workspace` (groups accounts, attaches policies + condition/action rules)
+
 ### Webhooks (HIGH)
 
 - [`rules/webhooks-commands.md`](rules/webhooks-commands.md) — CRUD, triggers, test events, local webhook server
-
-### Inbound Email (MEDIUM)
-
-- [`rules/inbound-email.md`](rules/inbound-email.md) — Managed inbound addresses without OAuth, real-time monitoring
 
 ### Dashboard (MEDIUM)
 
@@ -68,14 +68,18 @@ Read individual rule files for command references. For the full compiled referen
 
 - [`rules/notetaker-commands.md`](rules/notetaker-commands.md) — AI meeting bot list/create/show/media/delete workflows
 
+### OTP Codes (MEDIUM)
+
+- [`rules/otp-commands.md`](rules/otp-commands.md) — Retrieve/watch 2FA one-time-password codes from email: `nylas otp get|watch|list|messages`
+
 ### Audit Logging (MEDIUM)
 
 - [`rules/audit-commands.md`](rules/audit-commands.md) — Init, enable/disable, view logs/summary, export, config
 
 ### Tools & Interfaces (LOW)
 
-- [`rules/tools-interfaces.md`](rules/tools-interfaces.md) — TUI, UI, Air web client, demo mode, timezone utilities
+- [`rules/tools-interfaces.md`](rules/tools-interfaces.md) — TUI, UI, Air web client, demo mode, `nylas commands` metadata, timezone utilities
 
 ### Advanced Families (LOW)
 
-- [`rules/advanced-commands.md`](rules/advanced-commands.md) — Admin, scheduler, timezone, agent, workflows, hosted templates, and GPG-related email feature docs
+- [`rules/advanced-commands.md`](rules/advanced-commands.md) — Admin, scheduler, timezone, workflows, hosted templates, and GPG-related email feature docs

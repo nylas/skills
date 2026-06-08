@@ -49,3 +49,10 @@ Config file: `~/.config/nylas/config.yaml` | Credentials in system keyring or en
 nylas completion bash|zsh|fish|powershell     # Generate completions
 nylas update                                  # Self-update the CLI
 ```
+
+### Diagnostics
+
+```bash
+nylas doctor                                  # Check credentials, grants, secret store, connectivity, config
+nylas doctor --verbose                        # Detailed diagnostic output
+```
