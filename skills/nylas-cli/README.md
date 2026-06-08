@@ -4,20 +4,21 @@ Manage email, calendar, contacts, Slack, and Notetaker from the terminal with th
 
 ## What this skill covers
 
-- **Setup** — Install (Homebrew or Go, with hosted installers as inspect-before-run alternatives), init with SSO, global flags, config management
+- **Setup** — Install (Homebrew or Go, with hosted installers as inspect-before-run alternatives), init with SSO, global flags, config management, `nylas doctor` diagnostics
 - **Authentication** — Login, whoami, switch, add/remove/revoke grants, token, scopes, migrate
 - **Email** — Read, send, search, smart-compose, AI analyze, metadata, templates, GPG-related signing/encryption flows, scheduled mail
 - **Calendar** — Events CRUD, RSVP, availability, AI scheduling, timezone tools, DST handling, timezone locking, working-hours and break validation
 - **Contacts** — CRUD, search, sync, groups
+- **Agent Accounts** — Managed email identities for AI agents: `nylas agent account|policy|rule|status` and `nylas workspace` (groups accounts, attaches policies + condition/action rules)
 - **Webhooks** — CRUD, triggers, test events, local server
 - **Slack** — Workspace auth, channels, messages, send/reply, users, search
 - **Notetaker** — AI meeting bot list/create/show/media/delete
-- **Inbound Email** — Managed inbound addresses, real-time monitoring
+- **OTP Codes** — Retrieve and watch 2FA one-time-password codes from email
 - **Dashboard** — Account, apps, API keys, organizations
 - **MCP & AI** — MCP install for Claude Desktop, Claude Code, Cursor, Windsurf, or VS Code; AI chat (claude/codex/ollama)
 - **Audit** — Logging, export, config
-- **Tools** — TUI, UI, Air web client, demo mode, timezones
-- **Advanced Families** — Admin, scheduler, timezone, agent, workflows, hosted templates, and GPG-related email feature docs
+- **Tools** — TUI, UI, Air web client, demo mode, `nylas commands` metadata, timezones
+- **Advanced Families** — Admin, scheduler, timezone, workflows, hosted templates, and GPG-related email feature docs
 
 ## Structure
 

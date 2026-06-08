@@ -33,4 +33,8 @@ nylas chat --no-browser                       # CLI-only (no browser)
 
 ```bash
 nylas ai config                               # Configure AI settings
+nylas ai usage                                # Show AI usage statistics
+nylas ai set-budget                           # Set monthly AI usage budget
+nylas ai show-budget                          # Show current AI budget configuration
+nylas ai clear-data                           # Clear all AI data and learned patterns
 ```

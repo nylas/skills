@@ -8,9 +8,19 @@ section: tools
 | Command | Description |
 |---------|-------------|
 | `nylas tui` | Interactive terminal UI with vim keys |
+| `nylas tui theme init\|list\|set-default\|validate` | Manage TUI themes |
 | `nylas ui` | Alternate UI launcher |
 | `nylas air` | Web client at localhost:7365 |
 | `nylas demo <resource>` | Try without an account |
+
+## Command Metadata
+
+```bash
+nylas commands                                # Flat list of commands for browsing
+nylas commands --json                         # Machine-readable command/flag schema for agents
+nylas commands email send --json              # Schema for a specific command path
+nylas commands --all --format yaml            # Include hidden commands/flags
+```
 
 ## Timezone Utilities (Offline)
 
