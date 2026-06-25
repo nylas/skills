@@ -1,6 +1,26 @@
-# Nylas Skills
+<div align="center">
+  <a href="https://www.nylas.com/">
+    <img width="100%" alt="Nylas" src="https://github.com/user-attachments/assets/137517ae-244d-47a5-8ca7-b12984971fc4" />
+  </a>
 
-[Agent Skills](https://skills.sh) for building with the Nylas platform. Works with Claude Code, Cursor, Codex CLI, and 40+ other AI coding agents.
+  <h1>Nylas Skills</h1>
+
+  <p>
+    <strong>Agent Skills for building with Nylas — the infrastructure that powers communications</strong>
+  </p>
+
+  <p>
+    <a href="https://developer.nylas.com/">📖 Docs</a> ·
+    <a href="https://developer.nylas.com/docs/api/v3/">📚 API Reference</a> ·
+    <a href="https://dashboard-v3.nylas.com/register">🚀 Sign up</a> ·
+    <a href="https://github.com/orgs/nylas-samples/repositories">💡 Samples</a> ·
+    <a href="https://forums.nylas.com">💬 Forum</a>
+  </p>
+</div>
+
+<br />
+
+[Agent Skills](https://skills.sh) for building with the Nylas platform. Works with Claude Code, Cursor, Codex CLI, and 40+ other AI coding agents. Built on [Nylas](https://developer.nylas.com/), the infrastructure that powers communications — integrate with Gmail, Microsoft, IMAP, Zoom, and 250+ providers in 5 minutes, or give your AI agent its own mailbox. Covers [Agent Accounts](https://developer.nylas.com/docs/v3/agent-accounts/), [Email](https://developer.nylas.com/docs/v3/email/), [Calendar](https://developer.nylas.com/docs/v3/calendar/), [Contacts](https://developer.nylas.com/docs/v3/email/contacts/), [Scheduler](https://developer.nylas.com/docs/v3/scheduler/), and [Notetaker](https://developer.nylas.com/docs/v3/notetaker/).
 
 ## Available Skills
 
@@ -23,6 +43,14 @@ Manage email, calendar, and contacts from the terminal with the Nylas CLI.
 **Covers:** Setup & config, authentication, email (read/send/search/AI), calendar (events/RSVP/AI scheduling), contacts, webhooks, inbound email, dashboard management, MCP install (Claude Desktop/Code, Cursor, Windsurf, VS Code), AI chat (claude/codex/ollama), audit logging, TUI/Air/demo mode.
 
 **Docs source:** [cli.nylas.com/docs/commands](https://cli.nylas.com/docs/commands)
+
+## Give your agent its own mailbox
+
+These skills work with any Nylas grant — including [**Agent Accounts**](https://developer.nylas.com/docs/v3/agent-accounts/), Nylas-hosted email and calendar mailboxes you provision on your own domain and drive entirely through the API. Give an AI agent an `agent@yourdomain.com` identity that can send, receive, and RSVP without connecting a human's account.
+
+- [Quickstart: Agent Accounts](https://developer.nylas.com/docs/v3/getting-started/agent-accounts/) — create your first mailbox in 5 minutes
+- [Agent Accounts overview](https://developer.nylas.com/docs/v3/agent-accounts/) — what they are and when to use them
+- [Cookbook recipes](https://developer.nylas.com/docs/cookbook/) — handle replies, multi-turn conversations, OTP extraction, and more
 
 ## Install
 
