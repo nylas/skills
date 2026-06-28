@@ -9,9 +9,8 @@
 ## 7. Webhooks (webhooks) — HIGH
 ## 8. Dashboard (dashboard) — MEDIUM
 ## 9. MCP & AI (mcp) — HIGH
-## 10. Slack Integration (slack) — MEDIUM
-## 11. Notetaker (notetaker) — MEDIUM
-## 12. OTP Codes (otp) — MEDIUM
-## 13. Audit Logging (audit) — MEDIUM
-## 14. Tools & Interfaces (tools) — LOW
-## 15. Advanced Families (advanced) — LOW
+## 10. Notetaker (notetaker) — MEDIUM
+## 11. OTP Codes (otp) — MEDIUM
+## 12. Audit Logging (audit) — MEDIUM
+## 13. Tools & Interfaces (tools) — LOW
+## 14. Advanced Families (advanced) — LOW

@@ -23,6 +23,29 @@ nylas init --microsoft                        # Microsoft SSO shortcut
 nylas init --github                           # GitHub SSO shortcut
 ```
 
+### Agents: First-Run / Not Configured
+
+`nylas init` opens a browser for SSO and runs **only interactively (a TTY)**. An agent cannot complete it — in a non-interactive shell it fails fast with `--api-key is required in non-interactive mode`. Do not run it yourself or loop on it.
+
+When a command fails with `API key not configured`, or `nylas auth status --json` returns `"configured": false`:
+
+1. **User already has an API key** → set up non-interactively, no browser:
+   ```bash
+   export NYLAS_API_KEY=nyl_...        # or have them run: nylas init --api-key nyl_...
+   ```
+2. **Brand-new user (no key)** → you cannot sign them in. Tell the human to run, in **their own terminal**:
+   ```bash
+   nylas init                          # opens a browser to log in / create an account
+   nylas init --google                 # provider shortcut (or --microsoft / --github)
+   ```
+   Then wait for them to confirm it finished.
+3. **Verify before continuing** — never assume success:
+   ```bash
+   nylas auth status --json            # → {"configured": true, "default_grant": "...", "grant": {...}}
+   ```
+
+Don't put a user's API key into their shell history for them — prefer the env var, or have them run `nylas init --api-key` themselves.
+
 ### Global Flags
 
 `--config PATH`, `--format table|json|yaml`, `--json`, `--no-color`, `--quiet`/`-q`, `--verbose`/`-v`, `--wide`/`-w`, `--help`/`-h`

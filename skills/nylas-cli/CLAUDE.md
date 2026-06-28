@@ -18,9 +18,8 @@
 | `rules/agent-commands.md` | Agent accounts: `nylas agent account|policy|rule|status` + `nylas workspace` |
 | `rules/webhooks-commands.md` | CRUD, triggers, test, local server |
 | `rules/dashboard-commands.md` | Account, apps, API keys, orgs |
-| `rules/mcp-ai-commands.md` | MCP install/serve, AI chat (claude/codex/ollama) |
-| `rules/slack-commands.md` | `nylas slack auth|channels|messages|send|reply|users|search` |
-| `rules/notetaker-commands.md` | `nylas notetaker list|create|show|media|delete` |
+| `rules/mcp-ai-commands.md` | MCP install/serve, AI config (usage/budget) |
+| `rules/notetaker-commands.md` | `nylas notetaker list|create|show|media|leave|delete` |
 | `rules/otp-commands.md` | `nylas otp get|watch|list|messages` (2FA codes from email) |
 | `rules/audit-commands.md` | Audit logging, export |
 | `rules/tools-interfaces.md` | TUI, UI, Air, demo, `nylas commands`, timezones |

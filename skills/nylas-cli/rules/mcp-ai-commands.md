@@ -18,17 +18,6 @@ nylas mcp uninstall --assistant A             # Uninstall from assistant
 nylas mcp serve                               # Start MCP server
 ```
 
-## AI Chat
-
-```bash
-nylas chat                                    # Chat with your data (default agent)
-nylas chat --agent claude                     # Use Claude as agent
-nylas chat --agent codex                      # Use Codex as agent
-nylas chat --agent ollama --model llama2       # Use local Ollama model
-nylas chat --port 8080                        # Custom port
-nylas chat --no-browser                       # CLI-only (no browser)
-```
-
 ## AI Configuration
 
 ```bash

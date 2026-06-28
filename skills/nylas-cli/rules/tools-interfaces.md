@@ -8,6 +8,7 @@ section: tools
 | Command | Description |
 |---------|-------------|
 | `nylas tui` | Interactive terminal UI with vim keys |
+| `nylas tui messages\|events\|contacts\|grants\|webhooks` | Launch TUI directly to a specific view |
 | `nylas tui theme init\|list\|set-default\|validate` | Manage TUI themes |
 | `nylas ui` | Alternate UI launcher |
 | `nylas air` | Web client at localhost:7365 |

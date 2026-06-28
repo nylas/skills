@@ -8,11 +8,13 @@ section: calendar
 ```bash
 nylas calendar list                           # List calendars
 nylas calendar show|create|update|delete <id> # Calendar (resource) CRUD
+nylas calendar resources                      # List bookable room/equipment resources
 nylas calendar events list [--days N]         # Upcoming events
 nylas calendar events show <id>               # Event details
 nylas calendar events create --title T --start S --end E
 nylas calendar events update <id>             # Update event
 nylas calendar events delete <id>             # Delete event
+nylas calendar events import <calendar-id>    # Bulk-export events (migration/backup)
 nylas calendar events rsvp <id> --status yes  # RSVP
 nylas calendar recurring list|update|delete   # Recurring-event series
 nylas calendar virtual list|show|create|delete  # Virtual calendars

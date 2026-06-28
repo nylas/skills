@@ -28,6 +28,21 @@ nylas dashboard apps apikeys list             # List API keys
 nylas dashboard apps apikeys create           # Create API key
 ```
 
+### Domains (inbox / agent-account domains)
+
+Manage `*.nylas.email` and custom inbox domains used by agent accounts (see [`agent-commands.md`](agent-commands.md)).
+
+```bash
+nylas dashboard domains list                  # List inbox domains
+nylas dashboard domains check <subdomain>     # Check subdomain availability
+nylas dashboard domains create <domain> --region us|eu   # Register a domain
+nylas dashboard domains show <domain-id>      # Domain details
+nylas dashboard domains dns <domain-id>       # Show DNS records required for verification
+nylas dashboard domains verify <domain-id>    # Verify domain DNS
+nylas dashboard domains update <domain-id>    # Update a domain
+nylas dashboard domains delete <domain-id> --yes
+```
+
 ### Organizations
 
 ```bash

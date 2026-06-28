@@ -54,6 +54,9 @@ section: best-practices
 | 500 | Server errors | https://developer.nylas.com/docs/api/errors/500-response/ |
 | 700 | Provider-specific errors | https://developer.nylas.com/docs/api/errors/700-response/ |
 
+- **406 Not Acceptable** — your `Accept` header asks for a format Nylas can't produce. Send `Accept: application/json` (or omit it).
+- **502 vs 504** — a `502` means a Nylas service was briefly unavailable; retry with backoff. Provider-originated gateway errors are normalized to **`504`**, not surfaced as `502`.
+
 ### Detailed Guides
 
 | Topic | Doc Link |
