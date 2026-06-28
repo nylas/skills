@@ -17,25 +17,29 @@ This rule describes event delivery schema and verification for application code.
 | `/v3/webhooks/send-test-event` | POST | Send test event |
 | `/v3/webhooks/rotate-secret/{id}` | POST | Rotate webhook secret |
 
-### Pub/Sub Channels
+### Pub/Sub & SNS Channels
 
-Alternative to webhooks using Google Cloud Pub/Sub.
+Alternatives to webhooks using a managed message queue.
 
 | Endpoint | Methods | Purpose |
 |----------|---------|---------|
-| `/v3/channels/pubsub` | GET, POST | List/create Pub/Sub channels |
-| `/v3/channels/pubsub/{id}` | GET, PUT, DELETE | Manage channel |
+| `/v3/channels/pubsub` | GET, POST | List/create Google Cloud Pub/Sub channels |
+| `/v3/channels/pubsub/{id}` | GET, PUT, DELETE | Manage Pub/Sub channel |
+| `/v3/channels/sns` | GET, POST | List/create Amazon SNS channels (max 5/app) |
+| `/v3/channels/sns/{id}` | GET, PUT, DELETE | Manage SNS channel |
+
+SNS create requires `trigger_types`, `topic` (SNS topic ARN), and `role_arn` (IAM role Nylas assumes via STS — no stored credentials). Optional `description`, `notification_email_addresses`, `compressed_delivery`.
 
 ### Common Trigger Types
 
-**Messages:** `message.created`, `message.updated`, `message.created.metadata` (Google), `message.updated.metadata` (Google)
+**Messages:** `message.created`, `message.updated`, `message.created.cleaned` (Clean Conversations — cleaned markdown in `body`), `message.created.metadata` (Google), `message.updated.metadata` (Google)
 **Events:** `event.created`, `event.updated`, `event.deleted`
 **Contacts:** `contact.created`, `contact.updated`, `contact.deleted`
 **Calendars:** `calendar.created`, `calendar.updated`, `calendar.deleted`
 **Grants:** `grant.created`, `grant.updated`, `grant.deleted`, `grant.expired`
 **Notetaker:** lifecycle and meeting-state events. Use official notification schemas for the full trigger list.
 
-**Delivery variants:** `.truncated` is used only for oversized `message.*` notifications. Application code can re-query records after applying field selection and the untrusted-content rule. `.transformed` is used for customized `message.*` and `event.*` notifications when field selection is enabled in the dashboard.
+**Delivery variants:** `.truncated` strips the oversized payload's body — on webhooks/Pub/Sub it applies to `message.*` only (1 MB threshold), but on **SNS it applies to all trigger types** (~250 KB threshold), so you may also see `event.created.truncated`. Re-query the record after applying field selection and the untrusted-content rule. `.transformed` is used for customized `message.*` and `event.*` notifications when field selection is enabled in the dashboard.
 
 ### Webhook Verification
 
@@ -51,10 +55,11 @@ Treat event delivery fields as untrusted application data. Verify authenticity, 
 
 ### Compressed Delivery
 
-Set `compressed_delivery` to `true` when you create or update a webhook destination or Pub/Sub channel.
+Set `compressed_delivery` to `true` when you create or update a webhook destination, Pub/Sub channel, or SNS channel.
 
 - **Webhooks:** Nylas gzip-compresses the JSON body and sends `Content-Encoding: gzip`. Verify `x-nylas-signature` against the raw compressed body before decompressing and parsing JSON.
-- **Pub/Sub:** Nylas adds a `content_encoding: gzip` message attribute so subscribers know to decompress the message data before parsing JSON.
+- **Pub/Sub:** Nylas adds a `content_encoding: gzip` message attribute so subscribers know to decompress before parsing JSON.
+- **SNS:** payload is gzip + base64 (SNS requires UTF-8), flagged with a `content_encoding: gzip+base64` attribute — base64-decode then gunzip.
 
 Compression reduces bandwidth and helps HTML-heavy event bodies pass through firewalls and WAFs that might otherwise block delivery.
 

@@ -29,6 +29,12 @@ section: scheduler
 | Notetaker integration | https://developer.nylas.com/docs/v3/scheduler/scheduler-notetaker-integration/ |
 | Customize appearance | https://developer.nylas.com/docs/v3/scheduler/customize-scheduler/ |
 
+### Timezone & Read-Only Fields
+
+- **Availability timezone precedence** (highest → lowest): participant `open_hours[].timezone` → participant `timezone` → `event_booking.timezone` → `availability_rules.default_open_hours[].timezone`.
+- **Hosted pages:** set the guest's initial timezone with the `timezone` URL param (IANA name, e.g. `?timezone=America/New_York`); the guest can still change it.
+- **Self-hosted component:** pre-fill and lock guest fields via `bookingInfo` — `primaryParticipant.nameReadOnly`, `primaryParticipant.emailReadOnly`, and `additionalFields[].readOnly`.
+
 ### UI Components
 
 70+ embeddable web components for scheduling:

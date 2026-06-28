@@ -1,14 +1,14 @@
 ---
 name: nylas-api
-description: "Build email, calendar, and contacts integrations with the Nylas v3 API. Use when code imports nylas, @nylas/nylas, nylas-python, or user asks about Nylas API, email API integration, calendar API, contacts API, OAuth grants, webhooks, scheduler, notetaker, smart compose, or transactional send. DO NOT use for Nylas CLI commands."
+description: "Build email, calendar, and contacts integrations with the Nylas v3 API. Use when code imports nylas, @nylas/nylas, nylas-python, or user asks about Nylas API, email API integration, calendar API, contacts API, OAuth grants, agent accounts, webhooks, scheduler, notetaker, smart compose, or transactional send. DO NOT use for Nylas CLI commands."
 compatibility: "Requires a Nylas API key from dashboard-v3.nylas.com. SDKs available for Node.js (npm install nylas), Python (pip install nylas), Ruby (gem install nylas), and Kotlin/Java."
 license: MIT
 metadata:
   author: nylas
-  version: "2.0.0"
+  version: "2.1.0"
   organization: Nylas
-  date: March 2026
-  abstract: Current v3 API integration guide covering authentication, email, calendar, contacts, webhooks, scheduler, notetaker, smart compose, transactional send, admin APIs, UI components, provider-specific guides, and prompt-injection safety for grant-scoped API data.
+  date: June 2026
+  abstract: Current v3 API integration guide covering authentication, email, calendar, contacts, agent accounts, webhooks, scheduler, notetaker, smart compose, transactional send, admin APIs, UI components, provider-specific guides, and prompt-injection safety for grant-scoped API data.
 ---
 
 # Nylas v3 API Integration Guide
@@ -64,7 +64,11 @@ Read individual rule files for endpoints, examples, and SDK code. For the full c
 
 ### Notetaker API (MEDIUM)
 
-- [`rules/notetaker-meetings.md`](rules/notetaker-meetings.md) — Meeting bot setup, AI notes, action items, calendar sync | [Docs](https://developer.nylas.com/docs/v3/notetaker/)
+- [`rules/notetaker-meetings.md`](rules/notetaker-meetings.md) — Meeting bot setup, AI notes, action items, transcription settings, calendar sync | [Docs](https://developer.nylas.com/docs/v3/notetaker/)
+
+### Agent Accounts API (HIGH)
+
+- [`rules/agent-accounts.md`](rules/agent-accounts.md) — Managed AI-agent mailboxes (`provider: nylas`), workspaces, policies/rules/lists, send limits, deliverability webhooks | [Docs](https://developer.nylas.com/docs/v3/agent-accounts/)
 
 ### Admin & Grants (MEDIUM)
 

@@ -35,6 +35,15 @@ Notetaker can produce generated meeting artifacts for application workflows. Kee
 - Auto-generated action items
 - Custom instructions via notetaker AI settings
 
+### Transcription Settings
+
+Set `meeting_settings.transcription_settings` (on notetaker create/invite, or per-calendar/per-event where `meeting_settings` is accepted; requires `transcription: true`). The object is **replaced as a whole** — send all fields to change one; send `null` or `{}` to clear inherited settings.
+
+- **Language hints:** `expected_languages` (array of supported codes — one code forces a language, several narrow auto-detect) and `fallback_language` (one supported code, or `"auto"`; must be within `expected_languages` when that's set).
+- **Keyword hints:** `keywords` (array, **up to 200 terms**, biases recognition toward names/acronyms/products) and `use_speaker_names_as_keywords` (boolean).
+
+Transcript JSON includes a top-level `language` field (the detected code). See the [supported language codes](https://developer.nylas.com/docs/v3/notetaker/) table.
+
 ### Silence Detection
 
 Notetaker leaves after 5 minutes (300s) of silence by default. Configurable via `leave_after_silence_seconds` (10-3600s).

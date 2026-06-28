@@ -20,7 +20,8 @@
 | `rules/contacts-crud.md` | CRUD, groups, sources, profile pictures |
 | `rules/webhooks-notifications.md` | Webhooks, Pub/Sub, triggers, verification, retries |
 | `rules/scheduler-booking.md` | Configurations, bookings, UI components, meeting types |
-| `rules/notetaker-meetings.md` | Meeting bot setup, AI notes, action items |
+| `rules/notetaker-meetings.md` | Meeting bot setup, AI notes, action items, transcription settings |
+| `rules/agent-accounts.md` | Agent-account mailboxes (`provider: nylas`), workspaces, policies/rules/lists, send limits |
 | `rules/admin-grants.md` | Grants, connectors, API keys, domains, workspaces |
 | `rules/sdk-quickstart.md` | Node.js, Python, Ruby, Kotlin/Java |
 | `rules/best-practices-patterns.md` | Rate limits, error codes, pagination, metadata |

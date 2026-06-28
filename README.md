@@ -28,9 +28,9 @@
 
 Build email, calendar, and contacts integrations with the Nylas v3 API.
 
-**Use when:** code imports `nylas`/`@nylas/nylas`/`nylas-python`, or user asks about Nylas API, OAuth, webhooks, scheduler, notetaker, smart compose, transactional send.
+**Use when:** code imports `nylas`/`@nylas/nylas`/`nylas-python`, or user asks about Nylas API, OAuth, agent accounts, webhooks, scheduler, notetaker, smart compose, transactional send.
 
-**Covers:** Authentication (6 methods), Security & Prompt Safety (grant-scoped API data), Email (messages/threads/drafts/tracking/smart compose/templates/transactional), Calendar (events/availability/recurring/conferencing), Contacts, Webhooks & Pub/Sub, Scheduler (70+ UI components), Notetaker (meeting bot setup/AI notes), Admin (grants/connectors/API keys/domains), SDKs (Node.js/Python/Ruby/Kotlin), Best Practices (rate limits, error codes).
+**Covers:** Authentication (6 methods), Security & Prompt Safety (grant-scoped API data), Email (messages/threads/drafts/tracking/smart compose/templates/transactional), Calendar (events/availability/recurring/conferencing), Contacts, Agent Accounts (workspaces/policies/rules/deliverability), Webhooks & Pub/Sub & SNS, Scheduler (70+ UI components), Notetaker (meeting bot setup/AI notes), Admin (grants/connectors/API keys/domains), SDKs (Node.js/Python/Ruby/Kotlin), Best Practices (rate limits, error codes).
 
 **Docs source:** [developer.nylas.com](https://developer.nylas.com) — skills keep checked-in rules as the working source and use external docs links as reference URLs only.
 
@@ -38,9 +38,9 @@ Build email, calendar, and contacts integrations with the Nylas v3 API.
 
 Manage email, calendar, and contacts from the terminal with the Nylas CLI.
 
-**Use when:** user mentions `nylas init`, `nylas email`, `nylas calendar`, `nylas auth`, `nylas mcp`, `nylas chat`, `nylas tui`, `nylas audit`.
+**Use when:** user mentions `nylas init`, `nylas email`, `nylas calendar`, `nylas auth`, `nylas mcp`, `nylas agent`, `nylas tui`, `nylas audit`.
 
-**Covers:** Setup & config, authentication, email (read/send/search/AI), calendar (events/RSVP/AI scheduling), contacts, webhooks, inbound email, dashboard management, MCP install (Claude Desktop/Code, Cursor, Windsurf, VS Code), AI chat (claude/codex/ollama), audit logging, TUI/Air/demo mode.
+**Covers:** Setup & config, authentication, email (read/send/search/AI), calendar (events/RSVP/AI scheduling), contacts, agent accounts, webhooks, inbound email, dashboard management, MCP install (Claude Desktop/Code, Cursor, Windsurf, VS Code), AI config, audit logging, TUI/Air/demo mode.
 
 **Docs source:** [cli.nylas.com/docs/commands](https://cli.nylas.com/docs/commands)
 
