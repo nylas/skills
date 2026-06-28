@@ -1,8 +1,8 @@
 {
-  "version": "2.0.0",
+  "version": "3.0.0",
   "organization": "Nylas",
-  "date": "March 2026",
-  "abstract": "Nylas CLI reference covering setup, authentication, email, calendar, contacts, webhooks, agent accounts, timezone utilities, dashboard management, MCP installation, AI chat, Slack integration, Notetaker, OTP codes, audit logging, diagnostics, command metadata, TUI/demo interfaces, and advanced command families and workflows.",
+  "date": "June 2026",
+  "abstract": "Nylas CLI reference covering setup, authentication, email, calendar, contacts, webhooks, agent accounts, timezone utilities, dashboard management, MCP installation, AI config, Notetaker, OTP codes, audit logging, diagnostics, command metadata, TUI/demo interfaces, and advanced command families and workflows.",
   "references": [
     "https://cli.nylas.com/docs/commands"
   ]

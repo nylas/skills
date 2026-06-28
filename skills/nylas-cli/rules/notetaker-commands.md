@@ -14,6 +14,8 @@ nylas notetaker create --meeting-link URL --join-time "tomorrow 2pm"
 nylas notetaker create --meeting-link URL --bot-name "Meeting Recorder"
 nylas notetaker show <id>                    # Show notetaker details
 nylas notetaker media <id>                   # Show recording and transcript links
+nylas notetaker update <id>                  # Update a scheduled notetaker
+nylas notetaker leave <id>                   # Make an active notetaker leave its meeting
 nylas notetaker delete <id>                  # Cancel a notetaker
 nylas notetaker delete <id> --force          # Skip confirmation
 nylas nt list                                # Alias for list

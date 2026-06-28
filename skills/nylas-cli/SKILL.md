@@ -1,19 +1,19 @@
 ---
 name: nylas-cli
-description: "Use the Nylas CLI to manage email, calendar, contacts, Slack, and Notetaker from the terminal. Use when user asks about Nylas CLI commands, nylas init, nylas email, nylas calendar, nylas contacts, nylas auth, nylas agent, agent accounts, nylas mcp, nylas chat, nylas slack, nylas notetaker, nylas otp, nylas tui, nylas air, nylas audit, nylas doctor, or terminal-based email/calendar management. DO NOT use for Nylas API SDK integration."
+description: "Use the Nylas CLI to manage email, calendar, contacts, and Notetaker from the terminal. Use when user asks about Nylas CLI commands, nylas init, nylas email, nylas calendar, nylas contacts, nylas auth, nylas agent, agent accounts, nylas mcp, nylas notetaker, nylas otp, nylas tui, nylas air, nylas audit, nylas doctor, or terminal-based email/calendar management. DO NOT use for Nylas API SDK integration."
 compatibility: "Requires the Nylas CLI installed via Homebrew or Go. Hosted installers from cli.nylas.com are optional, but should be downloaded and inspected before execution."
 license: MIT
 metadata:
   author: nylas
-  version: "2.0.0"
+  version: "3.0.0"
   organization: Nylas
-  date: March 2026
-  abstract: CLI reference covering setup, auth, email, calendar, contacts, webhooks, agent accounts, timezone utilities, dashboard, MCP, AI chat, Slack integration, Notetaker, OTP codes, audit logging, diagnostics, tools/interfaces, and advanced command families and workflows.
+  date: June 2026
+  abstract: CLI reference covering setup, auth, email, calendar, contacts, webhooks, agent accounts, timezone utilities, dashboard, MCP, Notetaker, OTP codes, audit logging, diagnostics, tools/interfaces, and advanced command families and workflows.
 ---
 
 # Nylas CLI Reference
 
-Email, calendar, contacts, Slack, and Notetaker from your terminal. One CLI for Google, Microsoft, IMAP, Slack, and meeting-bot workflows.
+Email, calendar, contacts, and Notetaker from your terminal. One CLI for Google, Microsoft, IMAP, and meeting-bot workflows.
 
 ## Documentation
 
@@ -58,11 +58,7 @@ Read individual rule files for command references. For the full compiled referen
 
 ### MCP & AI (HIGH)
 
-- [`rules/mcp-ai-commands.md`](rules/mcp-ai-commands.md) — MCP install/status/serve for Claude Desktop, Claude Code, Cursor, Windsurf, VS Code, or all assistants; AI chat with multiple agents (claude/codex/ollama); AI config
-
-### Slack Integration (MEDIUM)
-
-- [`rules/slack-commands.md`](rules/slack-commands.md) — Slack workspace auth, channels, messages, send/reply, users, search
+- [`rules/mcp-ai-commands.md`](rules/mcp-ai-commands.md) — MCP install/status/serve for Claude Desktop, Claude Code, Cursor, Windsurf, VS Code, or all assistants; AI config (usage/budget)
 
 ### Notetaker (MEDIUM)
 

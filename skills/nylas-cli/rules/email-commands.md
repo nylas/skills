@@ -9,13 +9,16 @@ section: email
 nylas email list [grant-id]                   # Recent emails
 nylas email read <id>                         # Read a message
 nylas email send --to EMAIL --subject S --body B [--sign] [--encrypt]
+nylas email reply <id> --body B               # Reply to a message
 nylas email search "invoice"                  # Search
+nylas email move <id> --folder F              # Move to a folder (or archive)
+nylas email clean <id>                        # Strip quoted replies/signatures from a message
 nylas email delete <id>                       # Delete
 nylas email mark read|unread|starred|unstarred <id>   # Mark message
 nylas email tracking-info <id>                # Open/click/reply tracking for a message
 nylas email smart-compose --prompt "..."      # AI email generation
 nylas email ai analyze [--unread]             # AI inbox summary
-nylas email metadata show <id>                # Show message metadata
+nylas email metadata show|info <id>           # Show message metadata (info = field reference)
 nylas email attachments list|show|download <id>       # Attachments
 nylas email folders list|create|show|rename|delete    # Folders
 nylas email signatures list|create|show|update|delete # Stored signatures

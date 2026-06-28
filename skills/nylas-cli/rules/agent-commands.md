@@ -25,6 +25,7 @@ nylas agent account create <email>                    # Create an agent identity
 nylas agent account create <email> --app-password '...'  # Optional IMAP/SMTP app password for mail-client access
 nylas agent account get [<agent-id|email>]            # Account details + workspace link
 nylas agent account update [<agent-id|email>] --app-password '...'  # Rotate or add the app password
+nylas agent account move <agent-id|email> --workspace-id <id>  # Move account to another workspace
 nylas agent account delete <agent-id|email>           # Prompts for confirmation
 nylas agent account delete <agent-id|email> --yes     # Skip confirmation (-y; or -f/--force)
 ```
@@ -62,6 +63,21 @@ nylas agent rule delete <rule-id> --yes
 
 Flags: `--name`, `--description`, `--priority <int>`, `--trigger inbound|outbound` (defaults to `inbound` when using flags), `--enabled|--disabled`, `--match-operator all|any`, plus repeatable `--condition <field,operator,value>` and `--action <type[=value]>`. Condition fields include `from.domain`, `from`, `recipient.domain`, `subject`, `outbound.type`; for `in_list`, pass `field,in_list,list-id-1,list-id-2`. Actions include `block`, `archive`, `mark_as_read`, `mark_as_starred`, `mark_as_spam`. `--data`/`--data-file` accept a raw JSON body instead of flags.
 
+### Lists
+
+Reusable named lists of values (domains, addresses, etc.) referenced by rule conditions via `field,in_list,<list-id>` — edit a list to change what many rules match without touching each rule.
+
+```bash
+nylas agent list list                                 # List all lists
+nylas agent list create --name "Blocked domains"      # Create a list
+nylas agent list get <list-id>                        # Show a list and its items
+nylas agent list items <list-id>                      # Show list items only
+nylas agent list add <list-id> <value> [<value>...]   # Add items
+nylas agent list remove <list-id> <value> [<value>...] # Remove items
+nylas agent list update <list-id> --name "..." --description "..."
+nylas agent list delete <list-id> --yes
+```
+
 ### Workspaces
 
 Workspaces are a top-level command (`nylas workspace`, aliases `workspaces`/`ws`). A workspace groups agent accounts and attaches a policy plus rules — the indirection that lets you swap policy/rules without editing the account.
@@ -77,11 +93,12 @@ nylas workspace delete <workspace-id> --yes
 
 `--name` and `--domain` are required on create.
 
-### Status
+### Status & Overview
 
 ```bash
 nylas agent status                                    # Agent feature/config status
 nylas agent status --json
+nylas agent overview                                  # Summary across all agent resources (accounts, policies, rules, lists)
 ```
 
 ### Quick start
@@ -93,4 +110,4 @@ nylas email send --to customer@example.com --subject "Receipt" --body "Order con
 nylas email list --limit 5 --json
 ```
 
-Route `nylas agent account`, `nylas agent policy`, `nylas agent rule`, `nylas agent status` (alias `nylas agents`), and `nylas workspace` questions here. See "How it works" above for the architecture.
+Route `nylas agent account`, `nylas agent policy`, `nylas agent rule`, `nylas agent list`, `nylas agent status`, `nylas agent overview` (alias `nylas agents`), and `nylas workspace` questions here. See "How it works" above for the architecture.
