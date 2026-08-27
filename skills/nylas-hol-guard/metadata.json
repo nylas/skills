@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "organization": "Hashgraph Online",
+  "date": "August 2026",
+  "abstract": "Optional HOL Guard local-harness protection guidance for state-changing Nylas agent workflows while preserving Nylas-native authorization and validation.",
+  "references": [
+    "https://developer.nylas.com/docs/api/v3/",
+    "https://developer.nylas.com/docs/v3/agent-accounts/",
+    "https://github.com/hashgraph-online/hol-guard/blob/main/docs/guard/get-started.md"
+  ]
+}
