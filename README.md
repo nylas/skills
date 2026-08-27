@@ -44,6 +44,12 @@ Manage email, calendar, and contacts from the terminal with the Nylas CLI.
 
 **Docs source:** [cli.nylas.com/docs/commands](https://cli.nylas.com/docs/commands)
 
+### nylas-hol-guard
+
+Add a local HOL Guard safety boundary before a supported coding-agent harness performs state-changing Nylas workflows. Installs and invokes HOL Guard while keeping Nylas grants, scopes, policies, confirmations, and API validation authoritative.
+
+**Use when:** an agent will send/reply to email, mutate calendar/contact/webhook state, manage Agent Accounts, or change Nylas administrative state from a supported local harness.
+
 ## Give your agent its own mailbox
 
 These skills work with any Nylas grant — including [**Agent Accounts**](https://developer.nylas.com/docs/v3/agent-accounts/), Nylas-hosted email and calendar mailboxes you provision on your own domain and drive entirely through the API. Give an AI agent an `agent@yourdomain.com` identity that can send, receive, and RSVP without connecting a human's account.
@@ -63,6 +69,7 @@ npx skills add nylas/skills
 # Or install individually
 npx skills add nylas/skills --skill nylas-api
 npx skills add nylas/skills --skill nylas-cli
+npx skills add nylas/skills --skill nylas-hol-guard
 ```
 
 ### Claude Code Plugin
@@ -82,7 +89,7 @@ npx skills add /path/to/this/repo --agent claude-code --copy --all
 npx skills add /path/to/this/repo -g --agent claude-code --copy --all
 ```
 
-Then open a new Claude Code session — skills will be available as `nylas-api` and `nylas-cli`.
+Then open a new Claude Code session — skills will be available as `nylas-api`, `nylas-cli`, and `nylas-hol-guard`.
 
 ## Skill Structure
 

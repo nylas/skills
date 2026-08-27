@@ -24,6 +24,14 @@ Manage email, calendar, and contacts from the terminal with the Nylas CLI.
 
 **Covers:** Setup & config, authentication, email (read/send/search/AI), calendar (events/RSVP/AI scheduling), contacts, webhooks, inbound email, dashboard management, TUI/Air/MCP/demo mode.
 
+### nylas-hol-guard
+
+Use HOL Guard as an optional local pre-execution safety boundary before a supported coding-agent harness performs state-changing Nylas work.
+
+**Use when:** the agent will send/reply email, change calendar/contact/webhook state, manage Agent Accounts, or alter Nylas administrative state.
+
+**Covers:** HOL Guard install/init/detect/status/run flow, protected local agent sessions, and the boundary between local Guard enforcement and authoritative Nylas grants/scopes/policies/API validation.
+
 ## Key Context
 
 - **v3 only.** v2 is deprecated.
