@@ -13,14 +13,18 @@ pipx install hol-guard
 hol-guard init
 hol-guard detect --json
 hol-guard status
+hol-guard run <harness> --dry-run
 hol-guard run <harness>
+hol-guard doctor <harness> --json
 ```
 
-`hol-guard init` is the maintained guided first-run path. If manual setup is required, use the current HOL Guard install guide: generic supported harnesses use `hol-guard install <harness>`, while Hermes uses `hol-guard hermes bootstrap`. Never guess a harness identifier.
+`hol-guard init` is the maintained guided first-run path. For manual setup, use `hol-guard bootstrap` and `hol-guard install <harness>` with the exact identifier returned by detection; Hermes also supports `hol-guard hermes bootstrap`. Never guess a harness identifier.
+
+Do not skip the protected dry run. Stop if it reports an unexpected mutation or error, and do not claim protection until Guard status/doctor output proves the harness is configured successfully.
 
 Run Nylas operations from the Guard-launched coding-agent session. `hol-guard command test` is inspection-only and is not an authorization or policy-evaluation substitute.
 
-Reference: https://github.com/hashgraph-online/hol-guard/blob/main/docs/guard/get-started.md
+Reference: https://github.com/hashgraph-online/hol-guard/blob/release/3.0/docs/guard/get-started.md
 
 ---
 
