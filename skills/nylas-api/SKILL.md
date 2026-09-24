@@ -43,7 +43,7 @@ Read individual rule files for endpoints, examples, and SDK code. For the full c
 
 ### Email API (HIGH)
 
-- [`rules/email-messages.md`](rules/email-messages.md) — Messages, threads, drafts, folders, attachments, search, filters | [Docs](https://developer.nylas.com/docs/v3/email/)
+- [`rules/email-messages.md`](rules/email-messages.md) — Messages, threads, drafts, folders, attachments, search, filters, idempotent send | [Docs](https://developer.nylas.com/docs/v3/email/)
 - [`rules/email-advanced.md`](rules/email-advanced.md) — Tracking, smart compose, templates, workflows, scheduled/transactional send | [Docs](https://developer.nylas.com/docs/v3/email/message-tracking/)
 
 ### Calendar API (HIGH)

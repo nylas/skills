@@ -14,7 +14,7 @@
 | `rules/auth-oauth-flow.md` | OAuth, BYO, IMAP, PKCE, service accounts, Nylas Connect |
 | `rules/auth-providers.md` | Google, Microsoft, Yahoo, iCloud, IMAP, Exchange, Zoom |
 | `rules/security-untrusted-content.md` | Prompt-injection boundaries for untrusted content |
-| `rules/email-messages.md` | Messages, threads, drafts, folders, attachments, search |
+| `rules/email-messages.md` | Messages, threads, drafts, folders, attachments, search, idempotent send |
 | `rules/email-advanced.md` | Tracking, smart compose, templates, scheduled/transactional send |
 | `rules/calendar-events.md` | Events, availability, recurring, conferencing, group booking |
 | `rules/contacts-crud.md` | CRUD, groups, sources, profile pictures |

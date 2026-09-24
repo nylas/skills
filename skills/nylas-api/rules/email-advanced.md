@@ -58,6 +58,8 @@ Send emails without a grant using verified domains. No OAuth required.
 |----------|---------|
 | `/v3/domains/{domain_name}/messages/send` | Send transactional email |
 
+Supports the `Idempotency-Key` header for safe retries. Keys are scoped per application, not per domain, so they collide across all verified domains in the same app — see Idempotent Send in `rules/email-messages.md`.
+
 Reference: https://developer.nylas.com/docs/v3/getting-started/transactional-send/
 
 ### Other Email Features
@@ -67,6 +69,7 @@ Reference: https://developer.nylas.com/docs/v3/getting-started/transactional-sen
 | Domain warming | https://developer.nylas.com/docs/v3/email/domain-warming/ |
 | Domains & verification | https://developer.nylas.com/docs/v3/email/domains/ |
 | Headers & MIME data | https://developer.nylas.com/docs/v3/email/headers-mime-data/ |
+| Idempotent send | https://developer.nylas.com/docs/v3/email/idempotent-send/ |
 | Parse messages | https://developer.nylas.com/docs/v3/email/parse-messages/ |
 | Sending errors | https://developer.nylas.com/docs/v3/email/sending-errors/ |
 | Attachments | https://developer.nylas.com/docs/v3/email/attachments/ |

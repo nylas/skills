@@ -39,7 +39,7 @@ SNS create requires `trigger_types`, `topic` (SNS topic ARN), and `role_arn` (IA
 **Grants:** `grant.created`, `grant.updated`, `grant.deleted`, `grant.expired`
 **Notetaker:** lifecycle and meeting-state events. Use official notification schemas for the full trigger list.
 
-**Delivery variants:** `.truncated` strips the oversized payload's body — on webhooks/Pub/Sub it applies to `message.*` only (1 MB threshold), but on **SNS it applies to all trigger types** (~250 KB threshold), so you may also see `event.created.truncated`. Re-query the record after applying field selection and the untrusted-content rule. `.transformed` is used for customized `message.*` and `event.*` notifications when field selection is enabled in the dashboard.
+**Delivery variants:** `.truncated` strips the body of an oversized notification — on webhooks/Pub/Sub it applies to `message.*` only (1 MB threshold), but on **SNS it applies to all trigger types** (~250 KB threshold), so you may also see `event.created.truncated`. Re-query the record after applying field selection and the untrusted-content rule. `.transformed` is used for customized `message.*` and `event.*` notifications when field selection is enabled in the dashboard.
 
 ### Webhook Verification
 
@@ -59,7 +59,7 @@ Set `compressed_delivery` to `true` when you create or update a webhook destinat
 
 - **Webhooks:** Nylas gzip-compresses the JSON body and sends `Content-Encoding: gzip`. Verify `x-nylas-signature` against the raw compressed body before decompressing and parsing JSON.
 - **Pub/Sub:** Nylas adds a `content_encoding: gzip` message attribute so subscribers know to decompress before parsing JSON.
-- **SNS:** payload is gzip + base64 (SNS requires UTF-8), flagged with a `content_encoding: gzip+base64` attribute — base64-decode then gunzip.
+- **SNS:** the notification body is gzip + base64 (SNS requires UTF-8), flagged with a `content_encoding: gzip+base64` attribute — base64-decode then gunzip.
 
 Compression reduces bandwidth and helps HTML-heavy event bodies pass through firewalls and WAFs that might otherwise block delivery.
 
