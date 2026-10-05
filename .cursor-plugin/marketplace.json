@@ -16,10 +16,11 @@
       "strict": false,
       "version": "1.0.0",
       "category": "communications",
-      "tags": ["email", "calendar", "contacts", "nylas", "api", "cli", "oauth"],
+      "tags": ["email", "calendar", "contacts", "nylas", "api", "cli", "oauth", "templates", "workflows"],
       "skills": [
         "./skills/nylas-api",
-        "./skills/nylas-cli"
+        "./skills/nylas-cli",
+        "./skills/nylas-email-templates"
       ]
     }
   ]
