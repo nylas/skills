@@ -44,6 +44,16 @@ Manage email, calendar, and contacts from the terminal with the Nylas CLI.
 
 **Docs source:** [cli.nylas.com/docs/commands](https://cli.nylas.com/docs/commands)
 
+### nylas-email-templates
+
+Write, test, and deploy Nylas email templates and workflows with an API key.
+
+**Use when:** user asks to create or edit a Nylas email template, set up a workflow for `booking.*`, `event.*`, `grant.*`, `notetaker.*`, or `message.*` triggers, send email with a stored template, or debug a template that won't render or a workflow that doesn't send.
+
+**Covers:** Workflow vs Send API, triggers/scope/sender/recipients, payload variables and `notify_individually`, strict-mode Handlebars, dates and timezones, escaping and links, email-safe HTML, multilingual templates, render testing, creating and testing workflows, sending stored templates, debugging. Example templates: [nylas/workflow-email-templates](https://github.com/nylas/workflow-email-templates).
+
+**Docs source:** [Templates and workflows](https://developer.nylas.com/docs/v3/email/templates-workflows/)
+
 ## Give your agent its own mailbox
 
 These skills work with any Nylas grant — including [**Agent Accounts**](https://developer.nylas.com/docs/v3/agent-accounts/), Nylas-hosted email and calendar mailboxes you provision on your own domain and drive entirely through the API. Give an AI agent an `agent@yourdomain.com` identity that can send, receive, and RSVP without connecting a human's account.
@@ -63,6 +73,7 @@ npx skills add nylas/skills
 # Or install individually
 npx skills add nylas/skills --skill nylas-api
 npx skills add nylas/skills --skill nylas-cli
+npx skills add nylas/skills --skill nylas-email-templates
 ```
 
 ### Claude Code Plugin

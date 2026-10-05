@@ -77,6 +77,8 @@ Google (OAuth), Microsoft (OAuth), Yahoo (OAuth), iCloud (app password), IMAP (u
 | `/v3/workflows` | App-level workflows |
 | `/v3/domains/{domain_name}/messages/send` | Transactional send (no grant, Beta) |
 
+For writing and testing templates, creating workflows, and debugging sends, use the `nylas-email-templates` skill.
+
 **Filters:** `limit`, `subject`, `from`, `to`, `unread`, `starred`, `has_attachment`, `received_before`, `received_after`, `in`, `search_query_native`, `select`
 
 **Headers/send extras:** `fields` param (`standard` | `include_basic_headers` | `include_headers`) on list/get/send; `custom_headers` body field for outbound. `Idempotency-Key` request header (≤256 chars, unique per logical send) on grant and transactional (Beta) `messages/send`: for 1 hour, retries replay the original response (errors included) with `Idempotent-Response: true`. Scoped per grant, or per application for transactional send (keys collide across domains). When to reuse vs. regenerate the key: see Idempotent Send in `rules/email-messages.md`. Attachments over 25 MB (to 150 MB) use the `attachment-uploads` session flow (Beta, Microsoft Graph only). Template send: `template: { id, strict, variables }` where `variables` is a key/value object (nesting allowed), referenced as `{{key}}` / `{{parent.child}}`.

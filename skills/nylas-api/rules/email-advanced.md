@@ -37,6 +37,8 @@ Reusable email templates at app-level and grant-level, plus automated workflows.
 
 To send with a template, include `template: { id, strict (default true), variables }` in the send/draft body. `variables` is a key/value object whose values may be nested, referenced in the template via `{{key}}` / `{{parent.child}}` — e.g. `{"user": {"name": "Leyah"}}` fills `{{user.name}}`.
 
+For writing and testing templates, creating workflows, and debugging sends, use the `nylas-email-templates` skill.
+
 Reference: https://developer.nylas.com/docs/v3/email/templates-workflows/
 
 ### Scheduled Send

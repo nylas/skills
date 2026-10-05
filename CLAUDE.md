@@ -8,6 +8,7 @@ Skills for building with the Nylas platform. v3 only — v2 is deprecated.
 |-------|---------|----------|
 | `nylas-api` | `nylas`, `@nylas/nylas`, `nylas-python` imports | Building API integrations |
 | `nylas-cli` | `nylas init`, `nylas email`, `nylas mcp` mentions | Running CLI commands |
+| `nylas-email-templates` | Nylas email template, workflow, `trigger_event` mentions | Writing templates and workflows |
 
 ## Structure
 

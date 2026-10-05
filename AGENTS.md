@@ -24,6 +24,14 @@ Manage email, calendar, and contacts from the terminal with the Nylas CLI.
 
 **Covers:** Setup & config, authentication, email (read/send/search/AI), calendar (events/RSVP/AI scheduling), contacts, webhooks, inbound email, dashboard management, TUI/Air/MCP/demo mode.
 
+### nylas-email-templates
+
+Write, test, and deploy Nylas email templates and workflows with an API key.
+
+**Use when:** user asks to create or edit a Nylas email template, set up a workflow, send with a stored template, or debug a template or workflow.
+
+**Covers:** Workflow vs Send API, triggers/scope/sender/recipients, payload variables, strict-mode Handlebars, dates, escaping, email-safe HTML, multilingual templates, render testing, creating and testing workflows, sending stored templates, debugging.
+
 ## Key Context
 
 - **v3 only.** v2 is deprecated.
