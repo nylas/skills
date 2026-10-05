@@ -8,6 +8,7 @@ Skills for building with the Nylas platform. v3 only — v2 is deprecated.
 |-------|---------|----------|
 | `nylas-api` | `nylas`, `@nylas/nylas`, `nylas-python` imports | Building API integrations |
 | `nylas-cli` | `nylas init`, `nylas email`, `nylas mcp` mentions | Running CLI commands |
+| `nylas-hol-guard` | state-changing Nylas work from a supported local AI harness | Launching the agent through HOL Guard before mutations |
 
 ## Structure
 
