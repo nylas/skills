@@ -189,7 +189,9 @@ Model: `application → workspace (policy_id + rule_ids) → grant (workspace_id
 
 **Limits (Free/Full):** 3/20 concurrent accounts, 3K/10K sends/month, 200/unlimited per account/day, 25 MB outbound, ≤50 recipients/message; send rate 1 req/s sandbox / 5 req/s non-sandbox. Bounce ≥10% or complaint ≥0.5% pauses sending (no auto-clear).
 
-**Not supported** for agent grants: Smart Compose, templates/workflows, Scheduler, Notetaker, metadata, contact groups, native search.
+**Supported** for agent grants beyond mail/calendar/contacts CRUD: Scheduler (organizer, `primary` calendar only), metadata on events/messages/drafts, `search_query_native` full-text search (Nylas syntax), templates & workflows.
+
+**Not supported** for agent grants: Smart Compose, Notetaker, contact groups, Scheduler on non-primary calendars.
 
 **Deliverability webhooks:** `message.delivered`, `message.bounced`, `message.complaint`, `message.rejected`.
 

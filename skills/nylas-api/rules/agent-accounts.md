@@ -74,8 +74,13 @@ Concurrent agent accounts **3 / 20** · emails sent/month **3,000 / 10,000** · 
 
 ### Supported vs unsupported endpoints
 
-Supported: messages (incl. `send`, `clean`), threads, folders, drafts, attachments, calendars, events (incl. `send-rsvp`), contacts CRUD.
-**Not supported** for agent grants: Smart Compose, templates & workflows, Scheduler, Notetaker & conferencing, custom **metadata**, contact **groups**, and full-text / provider-native search (`search_query_native`) — use standard query params (`from`, `to`, `subject`, `received_after`, …) instead.
+Supported: messages (incl. `send`, `clean`), threads, folders, drafts, attachments, calendars, events (incl. `send-rsvp`), contacts CRUD, plus:
+- **Scheduler**: an agent grant can own a Configuration and be the organizer; all 4 meeting types work. Scheduler reads and books on the `primary` calendar only (set `availability.calendar_ids: ["primary"]` and `booking.calendar_id: "primary"`).
+- **Metadata** on events, messages, and drafts (up to 50 key-value pairs; filter with `metadata_pair`).
+- **Full-text search** with `search_query_native` on messages and threads, using Nylas search syntax (not a provider's native grammar).
+- **Templates & workflows**: a workflow on an agent grant renders and sends from the agent mailbox, including per-recipient `notify_individually` from event metadata.
+
+**Not supported** for agent grants: Smart Compose, Notetaker & conferencing, contact **groups**, and Scheduler on non-primary calendars.
 
 ### Deliverability webhooks (agent-account only)
 
